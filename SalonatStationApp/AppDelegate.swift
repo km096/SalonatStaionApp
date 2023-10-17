@@ -14,6 +14,9 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
 
     func application(_ application: UIApplication, didFinishLaunchingWithOptions launchOptions: [UIApplication.LaunchOptionsKey: Any]?) -> Bool {
         // Override point for customization after application launch.
+        let appeatance = UITabBarItem.appearance()
+        let textAttributes: [NSAttributedString.Key: Any] = [.font: UIFont(name: CustomFont(index: .regular), size: 20) ?? UIFont()]
+        appeatance.setTitleTextAttributes(textAttributes, for: .normal)
         return true
     }
 
@@ -33,4 +36,25 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
 
 
 }
+
+
+//extension AppDelegate {
+//    fileprivate func setupNavBar() {
+//        if #available(iOS 15, *) {
+//            let appearance = UINavigationBarAppearance()
+//            appearance.configureWithOpaqueBackground()
+//            appearance.titleTextAttributes = [NSAttributedString.Key.foregroundColor: UIColor.black]
+//            appearance.backgroundColor =  #colorLiteral(red: 0.979714334, green: 0.8133532405, blue: 0.8037056327, alpha: 1)
+//            UINavigationBar.appearance().standardAppearance = appearance
+//            UINavigationBar.appearance().scrollEdgeAppearance = appearance
+//                    
+//        }else{
+//            UINavigationBar.appearance().barTintColor = #colorLiteral(red: 0.979714334, green: 0.8133532405, blue: 0.8037056327, alpha: 1)
+//            UINavigationBar.appearance().tintColor = UIColor.black
+//            
+//        }
+//        UINavigationBar.appearance().titleTextAttributes = [NSAttributedString.Key.font: UIFont(name: ChooseFont.regular.rawValue, size:20) ?? UIFont()]
+//       
+//    }
+//}
 

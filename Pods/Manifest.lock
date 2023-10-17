@@ -1,0 +1,26 @@
+PODS:
+  - Alamofire (5.8.0)
+  - SVProgressHUD (2.2.5)
+  - SwiftyCodeView (0.3.6):
+    - SwiftyCodeView/Core (= 0.3.6)
+  - SwiftyCodeView/Core (0.3.6)
+
+DEPENDENCIES:
+  - Alamofire
+  - SVProgressHUD
+  - SwiftyCodeView
+
+SPEC REPOS:
+  trunk:
+    - Alamofire
+    - SVProgressHUD
+    - SwiftyCodeView
+
+SPEC CHECKSUMS:
+  Alamofire: 0e92e751b3e9e66d7982db43919d01f313b8eb91
+  SVProgressHUD: 1428aafac632c1f86f62aa4243ec12008d7a51d6
+  SwiftyCodeView: 0252e3520749a3fda1a9b141873401f8e6c570ad
+
+PODFILE CHECKSUM: 1d713c13b4ed9d6915a621bef2cdaa3bdf4c2e0e
+
+COCOAPODS: 1.12.1

@@ -7,15 +7,39 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		AB17520E6134095D08F8F36A /* Pods_SalonatStationApp.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 0A7083AAE2C81AFB98DAA750 /* Pods_SalonatStationApp.framework */; };
 		F209EED12ADC7A7C00528186 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = F209EED02ADC7A7C00528186 /* AppDelegate.swift */; };
 		F209EED32ADC7A7C00528186 /* SceneDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = F209EED22ADC7A7C00528186 /* SceneDelegate.swift */; };
 		F209EED52ADC7A7C00528186 /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = F209EED42ADC7A7C00528186 /* ViewController.swift */; };
 		F209EED82ADC7A7C00528186 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = F209EED62ADC7A7C00528186 /* Main.storyboard */; };
 		F209EEDA2ADC7A7E00528186 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = F209EED92ADC7A7E00528186 /* Assets.xcassets */; };
 		F209EEDD2ADC7A7E00528186 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = F209EEDB2ADC7A7E00528186 /* LaunchScreen.storyboard */; };
+		F209EEED2ADC82F500528186 /* Cairo-ExtraLight.ttf in Resources */ = {isa = PBXBuildFile; fileRef = F209EEE52ADC82F400528186 /* Cairo-ExtraLight.ttf */; };
+		F209EEEE2ADC82F500528186 /* Cairo-Light.ttf in Resources */ = {isa = PBXBuildFile; fileRef = F209EEE62ADC82F400528186 /* Cairo-Light.ttf */; };
+		F209EEEF2ADC82F500528186 /* Cairo-Bold.ttf in Resources */ = {isa = PBXBuildFile; fileRef = F209EEE72ADC82F500528186 /* Cairo-Bold.ttf */; };
+		F209EEF02ADC82F500528186 /* Cairo-Medium.ttf in Resources */ = {isa = PBXBuildFile; fileRef = F209EEE82ADC82F500528186 /* Cairo-Medium.ttf */; };
+		F209EEF12ADC82F500528186 /* Cairo-SemiBold.ttf in Resources */ = {isa = PBXBuildFile; fileRef = F209EEE92ADC82F500528186 /* Cairo-SemiBold.ttf */; };
+		F209EEF22ADC82F500528186 /* Cairo-ExtraBold.ttf in Resources */ = {isa = PBXBuildFile; fileRef = F209EEEA2ADC82F500528186 /* Cairo-ExtraBold.ttf */; };
+		F209EEF32ADC82F500528186 /* Cairo-Black.ttf in Resources */ = {isa = PBXBuildFile; fileRef = F209EEEB2ADC82F500528186 /* Cairo-Black.ttf */; };
+		F209EEF42ADC82F500528186 /* Cairo-Regular.ttf in Resources */ = {isa = PBXBuildFile; fileRef = F209EEEC2ADC82F500528186 /* Cairo-Regular.ttf */; };
+		F209EEF62ADC8F5400528186 /* Extensions.swift in Sources */ = {isa = PBXBuildFile; fileRef = F209EEF52ADC8F5400528186 /* Extensions.swift */; };
+		F2A2F77C2ADD509C0039B9AB /* LoginVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = F2A2F77B2ADD509C0039B9AB /* LoginVC.swift */; };
+		F2A2F77E2ADD53B50039B9AB /* Constants.swift in Sources */ = {isa = PBXBuildFile; fileRef = F2A2F77D2ADD53B50039B9AB /* Constants.swift */; };
+		F2A2F7812ADD8A240039B9AB /* TargetType.swift in Sources */ = {isa = PBXBuildFile; fileRef = F2A2F7802ADD8A240039B9AB /* TargetType.swift */; };
+		F2A2F7832ADD8DC70039B9AB /* BaseApi.swift in Sources */ = {isa = PBXBuildFile; fileRef = F2A2F7822ADD8DC70039B9AB /* BaseApi.swift */; };
+		F2A2F7852ADD93380039B9AB /* ErrorMessage.swift in Sources */ = {isa = PBXBuildFile; fileRef = F2A2F7842ADD93380039B9AB /* ErrorMessage.swift */; };
+		F2A2F7882ADDB8C40039B9AB /* AuthSalonApiNetwork.swift in Sources */ = {isa = PBXBuildFile; fileRef = F2A2F7872ADDB8C40039B9AB /* AuthSalonApiNetwork.swift */; };
+		F2A2F78A2ADDDBEA0039B9AB /* NetworkHelper.swift in Sources */ = {isa = PBXBuildFile; fileRef = F2A2F7892ADDDBEA0039B9AB /* NetworkHelper.swift */; };
+		F2A2F78D2ADDDC780039B9AB /* User.swift in Sources */ = {isa = PBXBuildFile; fileRef = F2A2F78C2ADDDC780039B9AB /* User.swift */; };
+		F2A2F7942ADDEDB60039B9AB /* Coder.swift in Sources */ = {isa = PBXBuildFile; fileRef = F2A2F7932ADDEDB60039B9AB /* Coder.swift */; };
+		F2D06CC62ADEC38300E2DD5B /* SalonAPI.swift in Sources */ = {isa = PBXBuildFile; fileRef = F2D06CC52ADEC38300E2DD5B /* SalonAPI.swift */; };
+		F2D06CC82ADEC51600E2DD5B /* SalonResponse.swift in Sources */ = {isa = PBXBuildFile; fileRef = F2D06CC72ADEC51600E2DD5B /* SalonResponse.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
+		0A7083AAE2C81AFB98DAA750 /* Pods_SalonatStationApp.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_SalonatStationApp.framework; sourceTree = BUILT_PRODUCTS_DIR; };
+		7FE736C344617677381F2DC1 /* Pods-SalonatStationApp.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-SalonatStationApp.debug.xcconfig"; path = "Target Support Files/Pods-SalonatStationApp/Pods-SalonatStationApp.debug.xcconfig"; sourceTree = "<group>"; };
+		F02836512A3246F7E064A1C5 /* Pods-SalonatStationApp.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-SalonatStationApp.release.xcconfig"; path = "Target Support Files/Pods-SalonatStationApp/Pods-SalonatStationApp.release.xcconfig"; sourceTree = "<group>"; };
 		F209EECD2ADC7A7C00528186 /* SalonatStationApp.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = SalonatStationApp.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		F209EED02ADC7A7C00528186 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		F209EED22ADC7A7C00528186 /* SceneDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SceneDelegate.swift; sourceTree = "<group>"; };
@@ -24,6 +48,26 @@
 		F209EED92ADC7A7E00528186 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		F209EEDC2ADC7A7E00528186 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
 		F209EEDE2ADC7A7E00528186 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		F209EEE52ADC82F400528186 /* Cairo-ExtraLight.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "Cairo-ExtraLight.ttf"; sourceTree = "<group>"; };
+		F209EEE62ADC82F400528186 /* Cairo-Light.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "Cairo-Light.ttf"; sourceTree = "<group>"; };
+		F209EEE72ADC82F500528186 /* Cairo-Bold.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "Cairo-Bold.ttf"; sourceTree = "<group>"; };
+		F209EEE82ADC82F500528186 /* Cairo-Medium.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "Cairo-Medium.ttf"; sourceTree = "<group>"; };
+		F209EEE92ADC82F500528186 /* Cairo-SemiBold.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "Cairo-SemiBold.ttf"; sourceTree = "<group>"; };
+		F209EEEA2ADC82F500528186 /* Cairo-ExtraBold.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "Cairo-ExtraBold.ttf"; sourceTree = "<group>"; };
+		F209EEEB2ADC82F500528186 /* Cairo-Black.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "Cairo-Black.ttf"; sourceTree = "<group>"; };
+		F209EEEC2ADC82F500528186 /* Cairo-Regular.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "Cairo-Regular.ttf"; sourceTree = "<group>"; };
+		F209EEF52ADC8F5400528186 /* Extensions.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Extensions.swift; sourceTree = "<group>"; };
+		F2A2F77B2ADD509C0039B9AB /* LoginVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LoginVC.swift; sourceTree = "<group>"; };
+		F2A2F77D2ADD53B50039B9AB /* Constants.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Constants.swift; sourceTree = "<group>"; };
+		F2A2F7802ADD8A240039B9AB /* TargetType.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TargetType.swift; sourceTree = "<group>"; };
+		F2A2F7822ADD8DC70039B9AB /* BaseApi.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BaseApi.swift; sourceTree = "<group>"; };
+		F2A2F7842ADD93380039B9AB /* ErrorMessage.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ErrorMessage.swift; sourceTree = "<group>"; };
+		F2A2F7872ADDB8C40039B9AB /* AuthSalonApiNetwork.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AuthSalonApiNetwork.swift; sourceTree = "<group>"; };
+		F2A2F7892ADDDBEA0039B9AB /* NetworkHelper.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NetworkHelper.swift; sourceTree = "<group>"; };
+		F2A2F78C2ADDDC780039B9AB /* User.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = User.swift; sourceTree = "<group>"; };
+		F2A2F7932ADDEDB60039B9AB /* Coder.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Coder.swift; sourceTree = "<group>"; };
+		F2D06CC52ADEC38300E2DD5B /* SalonAPI.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SalonAPI.swift; sourceTree = "<group>"; };
+		F2D06CC72ADEC51600E2DD5B /* SalonResponse.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SalonResponse.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -31,17 +75,37 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				AB17520E6134095D08F8F36A /* Pods_SalonatStationApp.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		1C73940538AAF044FCE74AFB /* Frameworks */ = {
+			isa = PBXGroup;
+			children = (
+				0A7083AAE2C81AFB98DAA750 /* Pods_SalonatStationApp.framework */,
+			);
+			name = Frameworks;
+			sourceTree = "<group>";
+		};
+		92F96A7FE20145AEA47F0B8B /* Pods */ = {
+			isa = PBXGroup;
+			children = (
+				7FE736C344617677381F2DC1 /* Pods-SalonatStationApp.debug.xcconfig */,
+				F02836512A3246F7E064A1C5 /* Pods-SalonatStationApp.release.xcconfig */,
+			);
+			path = Pods;
+			sourceTree = "<group>";
+		};
 		F209EEC42ADC7A7C00528186 = {
 			isa = PBXGroup;
 			children = (
 				F209EECF2ADC7A7C00528186 /* SalonatStationApp */,
 				F209EECE2ADC7A7C00528186 /* Products */,
+				92F96A7FE20145AEA47F0B8B /* Pods */,
+				1C73940538AAF044FCE74AFB /* Frameworks */,
 			);
 			sourceTree = "<group>";
 		};
@@ -56,15 +120,75 @@
 		F209EECF2ADC7A7C00528186 /* SalonatStationApp */ = {
 			isa = PBXGroup;
 			children = (
+				F2A2F78E2ADDEC730039B9AB /* Helper */,
+				F2A2F78B2ADDDC670039B9AB /* Model */,
+				F2A2F7862ADDB83D0039B9AB /* AuthHandlingApis */,
+				F2A2F77F2ADD89E80039B9AB /* Networking */,
 				F209EED02ADC7A7C00528186 /* AppDelegate.swift */,
 				F209EED22ADC7A7C00528186 /* SceneDelegate.swift */,
 				F209EED42ADC7A7C00528186 /* ViewController.swift */,
+				F2A2F77B2ADD509C0039B9AB /* LoginVC.swift */,
 				F209EED62ADC7A7C00528186 /* Main.storyboard */,
 				F209EED92ADC7A7E00528186 /* Assets.xcassets */,
 				F209EEDB2ADC7A7E00528186 /* LaunchScreen.storyboard */,
 				F209EEDE2ADC7A7E00528186 /* Info.plist */,
+				F209EEE42ADC824400528186 /* Fonts */,
 			);
 			path = SalonatStationApp;
+			sourceTree = "<group>";
+		};
+		F209EEE42ADC824400528186 /* Fonts */ = {
+			isa = PBXGroup;
+			children = (
+				F209EEEB2ADC82F500528186 /* Cairo-Black.ttf */,
+				F209EEE72ADC82F500528186 /* Cairo-Bold.ttf */,
+				F209EEEA2ADC82F500528186 /* Cairo-ExtraBold.ttf */,
+				F209EEE52ADC82F400528186 /* Cairo-ExtraLight.ttf */,
+				F209EEE62ADC82F400528186 /* Cairo-Light.ttf */,
+				F209EEE82ADC82F500528186 /* Cairo-Medium.ttf */,
+				F209EEEC2ADC82F500528186 /* Cairo-Regular.ttf */,
+				F209EEE92ADC82F500528186 /* Cairo-SemiBold.ttf */,
+			);
+			path = Fonts;
+			sourceTree = "<group>";
+		};
+		F2A2F77F2ADD89E80039B9AB /* Networking */ = {
+			isa = PBXGroup;
+			children = (
+				F2A2F7802ADD8A240039B9AB /* TargetType.swift */,
+				F2A2F7822ADD8DC70039B9AB /* BaseApi.swift */,
+				F2A2F7842ADD93380039B9AB /* ErrorMessage.swift */,
+				F2A2F7892ADDDBEA0039B9AB /* NetworkHelper.swift */,
+			);
+			path = Networking;
+			sourceTree = "<group>";
+		};
+		F2A2F7862ADDB83D0039B9AB /* AuthHandlingApis */ = {
+			isa = PBXGroup;
+			children = (
+				F2A2F7872ADDB8C40039B9AB /* AuthSalonApiNetwork.swift */,
+				F2D06CC52ADEC38300E2DD5B /* SalonAPI.swift */,
+				F2D06CC72ADEC51600E2DD5B /* SalonResponse.swift */,
+			);
+			path = AuthHandlingApis;
+			sourceTree = "<group>";
+		};
+		F2A2F78B2ADDDC670039B9AB /* Model */ = {
+			isa = PBXGroup;
+			children = (
+				F2A2F78C2ADDDC780039B9AB /* User.swift */,
+			);
+			path = Model;
+			sourceTree = "<group>";
+		};
+		F2A2F78E2ADDEC730039B9AB /* Helper */ = {
+			isa = PBXGroup;
+			children = (
+				F209EEF52ADC8F5400528186 /* Extensions.swift */,
+				F2A2F77D2ADD53B50039B9AB /* Constants.swift */,
+				F2A2F7932ADDEDB60039B9AB /* Coder.swift */,
+			);
+			path = Helper;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -74,9 +198,11 @@
 			isa = PBXNativeTarget;
 			buildConfigurationList = F209EEE12ADC7A7E00528186 /* Build configuration list for PBXNativeTarget "SalonatStationApp" */;
 			buildPhases = (
+				B1D2D28E9273258577ECDAE6 /* [CP] Check Pods Manifest.lock */,
 				F209EEC92ADC7A7C00528186 /* Sources */,
 				F209EECA2ADC7A7C00528186 /* Frameworks */,
 				F209EECB2ADC7A7C00528186 /* Resources */,
+				E29161697A75905EA4F5D1F3 /* [CP] Embed Pods Frameworks */,
 			);
 			buildRules = (
 			);
@@ -125,13 +251,63 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				F209EEF12ADC82F500528186 /* Cairo-SemiBold.ttf in Resources */,
+				F209EEEE2ADC82F500528186 /* Cairo-Light.ttf in Resources */,
 				F209EEDD2ADC7A7E00528186 /* LaunchScreen.storyboard in Resources */,
+				F209EEF22ADC82F500528186 /* Cairo-ExtraBold.ttf in Resources */,
 				F209EEDA2ADC7A7E00528186 /* Assets.xcassets in Resources */,
+				F209EEF02ADC82F500528186 /* Cairo-Medium.ttf in Resources */,
+				F209EEF42ADC82F500528186 /* Cairo-Regular.ttf in Resources */,
 				F209EED82ADC7A7C00528186 /* Main.storyboard in Resources */,
+				F209EEF32ADC82F500528186 /* Cairo-Black.ttf in Resources */,
+				F209EEEF2ADC82F500528186 /* Cairo-Bold.ttf in Resources */,
+				F209EEED2ADC82F500528186 /* Cairo-ExtraLight.ttf in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
 /* End PBXResourcesBuildPhase section */
+
+/* Begin PBXShellScriptBuildPhase section */
+		B1D2D28E9273258577ECDAE6 /* [CP] Check Pods Manifest.lock */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputFileListPaths = (
+			);
+			inputPaths = (
+				"${PODS_PODFILE_DIR_PATH}/Podfile.lock",
+				"${PODS_ROOT}/Manifest.lock",
+			);
+			name = "[CP] Check Pods Manifest.lock";
+			outputFileListPaths = (
+			);
+			outputPaths = (
+				"$(DERIVED_FILE_DIR)/Pods-SalonatStationApp-checkManifestLockResult.txt",
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "diff \"${PODS_PODFILE_DIR_PATH}/Podfile.lock\" \"${PODS_ROOT}/Manifest.lock\" > /dev/null\nif [ $? != 0 ] ; then\n    # print error to STDERR\n    echo \"error: The sandbox is not in sync with the Podfile.lock. Run 'pod install' or update your CocoaPods installation.\" >&2\n    exit 1\nfi\n# This output is used by Xcode 'outputs' to avoid re-running this script phase.\necho \"SUCCESS\" > \"${SCRIPT_OUTPUT_FILE_0}\"\n";
+			showEnvVarsInLog = 0;
+		};
+		E29161697A75905EA4F5D1F3 /* [CP] Embed Pods Frameworks */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputFileListPaths = (
+				"${PODS_ROOT}/Target Support Files/Pods-SalonatStationApp/Pods-SalonatStationApp-frameworks-${CONFIGURATION}-input-files.xcfilelist",
+			);
+			name = "[CP] Embed Pods Frameworks";
+			outputFileListPaths = (
+				"${PODS_ROOT}/Target Support Files/Pods-SalonatStationApp/Pods-SalonatStationApp-frameworks-${CONFIGURATION}-output-files.xcfilelist",
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "\"${PODS_ROOT}/Target Support Files/Pods-SalonatStationApp/Pods-SalonatStationApp-frameworks.sh\"\n";
+			showEnvVarsInLog = 0;
+		};
+/* End PBXShellScriptBuildPhase section */
 
 /* Begin PBXSourcesBuildPhase section */
 		F209EEC92ADC7A7C00528186 /* Sources */ = {
@@ -139,8 +315,20 @@
 			buildActionMask = 2147483647;
 			files = (
 				F209EED52ADC7A7C00528186 /* ViewController.swift in Sources */,
+				F2A2F7882ADDB8C40039B9AB /* AuthSalonApiNetwork.swift in Sources */,
 				F209EED12ADC7A7C00528186 /* AppDelegate.swift in Sources */,
 				F209EED32ADC7A7C00528186 /* SceneDelegate.swift in Sources */,
+				F2A2F78A2ADDDBEA0039B9AB /* NetworkHelper.swift in Sources */,
+				F209EEF62ADC8F5400528186 /* Extensions.swift in Sources */,
+				F2D06CC62ADEC38300E2DD5B /* SalonAPI.swift in Sources */,
+				F2A2F7852ADD93380039B9AB /* ErrorMessage.swift in Sources */,
+				F2A2F77C2ADD509C0039B9AB /* LoginVC.swift in Sources */,
+				F2A2F78D2ADDDC780039B9AB /* User.swift in Sources */,
+				F2A2F7942ADDEDB60039B9AB /* Coder.swift in Sources */,
+				F2A2F7832ADD8DC70039B9AB /* BaseApi.swift in Sources */,
+				F2A2F77E2ADD53B50039B9AB /* Constants.swift in Sources */,
+				F2D06CC82ADEC51600E2DD5B /* SalonResponse.swift in Sources */,
+				F2A2F7812ADD8A240039B9AB /* TargetType.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -282,6 +470,7 @@
 		};
 		F209EEE22ADC7A7E00528186 /* Debug */ = {
 			isa = XCBuildConfiguration;
+			baseConfigurationReference = 7FE736C344617677381F2DC1 /* Pods-SalonatStationApp.debug.xcconfig */;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
@@ -309,6 +498,7 @@
 		};
 		F209EEE32ADC7A7E00528186 /* Release */ = {
 			isa = XCBuildConfiguration;
+			baseConfigurationReference = F02836512A3246F7E064A1C5 /* Pods-SalonatStationApp.release.xcconfig */;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
