@@ -44,6 +44,7 @@ struct User: Codable {
             if userID != 0 {
                 return userID
             }
+            return nil
         }
     }
     

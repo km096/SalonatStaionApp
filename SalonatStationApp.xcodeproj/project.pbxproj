@@ -34,6 +34,7 @@
 		F2A2F7942ADDEDB60039B9AB /* Coder.swift in Sources */ = {isa = PBXBuildFile; fileRef = F2A2F7932ADDEDB60039B9AB /* Coder.swift */; };
 		F2D06CC62ADEC38300E2DD5B /* SalonAPI.swift in Sources */ = {isa = PBXBuildFile; fileRef = F2D06CC52ADEC38300E2DD5B /* SalonAPI.swift */; };
 		F2D06CC82ADEC51600E2DD5B /* SalonResponse.swift in Sources */ = {isa = PBXBuildFile; fileRef = F2D06CC72ADEC51600E2DD5B /* SalonResponse.swift */; };
+		F2D06CCA2ADEDF9000E2DD5B /* VerifacationCodeVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = F2D06CC92ADEDF9000E2DD5B /* VerifacationCodeVC.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -68,6 +69,7 @@
 		F2A2F7932ADDEDB60039B9AB /* Coder.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Coder.swift; sourceTree = "<group>"; };
 		F2D06CC52ADEC38300E2DD5B /* SalonAPI.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SalonAPI.swift; sourceTree = "<group>"; };
 		F2D06CC72ADEC51600E2DD5B /* SalonResponse.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SalonResponse.swift; sourceTree = "<group>"; };
+		F2D06CC92ADEDF9000E2DD5B /* VerifacationCodeVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = VerifacationCodeVC.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -128,6 +130,7 @@
 				F209EED22ADC7A7C00528186 /* SceneDelegate.swift */,
 				F209EED42ADC7A7C00528186 /* ViewController.swift */,
 				F2A2F77B2ADD509C0039B9AB /* LoginVC.swift */,
+				F2D06CC92ADEDF9000E2DD5B /* VerifacationCodeVC.swift */,
 				F209EED62ADC7A7C00528186 /* Main.storyboard */,
 				F209EED92ADC7A7E00528186 /* Assets.xcassets */,
 				F209EEDB2ADC7A7E00528186 /* LaunchScreen.storyboard */,
@@ -316,6 +319,7 @@
 			files = (
 				F209EED52ADC7A7C00528186 /* ViewController.swift in Sources */,
 				F2A2F7882ADDB8C40039B9AB /* AuthSalonApiNetwork.swift in Sources */,
+				F2D06CCA2ADEDF9000E2DD5B /* VerifacationCodeVC.swift in Sources */,
 				F209EED12ADC7A7C00528186 /* AppDelegate.swift in Sources */,
 				F209EED32ADC7A7C00528186 /* SceneDelegate.swift in Sources */,
 				F2A2F78A2ADDDBEA0039B9AB /* NetworkHelper.swift in Sources */,

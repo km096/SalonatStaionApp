@@ -53,34 +53,27 @@ class SceneDelegate: UIResponder, UIWindowSceneDelegate {
 
 extension SceneDelegate {
     fileprivate func setupNavBar() {
-//        if #available(iOS 15, *) {
-//            let appearance = UINavigationBarAppearance()
-//            appearance.configureWithOpaqueBackground()
-//            appearance.backgroundColor =  #colorLiteral(red: 0.501960814, green: 0.501960814, blue: 0.501960814, alpha: 1)
-//            appearance.titleTextAttributes = [.foregroundColor: UIColor.white]
-//            UINavigationBar.appearance().standardAppearance = appearance
-//            UINavigationBar.appearance().scrollEdgeAppearance = appearance
-//        }else{
-//            UINavigationBar.appearance().barTintColor = #colorLiteral(red: 0.501960814, green: 0.501960814, blue: 0.501960814, alpha: 1)
-//        }
         
-        if #available(iOS 15, *) {
+        let textAttributes: [NSAttributedString.Key: Any] = [.font: UIFont(name: "Cairo-Regular", size: 20) ?? UIFont()]
+        
+        if #available(iOS 13.0, *) {
             let appearance = UINavigationBarAppearance()
-            appearance.configureWithOpaqueBackground()
-            appearance.titleTextAttributes = [NSAttributedString.Key.foregroundColor: UIColor.black]
-//            let textAttributes: [NSAttributedString.Key: Any] = [.font: UIFont(name: CustomFont(index: .regular), size: 20) ?? UIFont()]
-//            UITabBarItem.appearance().setTitleTextAttributes(textAttributes, for: .normal)
+            UITabBarItem.appearance().setTitleTextAttributes(textAttributes, for: .normal)
+            
+            UINavigationBar.appearance().isTranslucent = false
             appearance.backgroundColor =  #colorLiteral(red: 0.979714334, green: 0.8133532405, blue: 0.8037056327, alpha: 1)
+            
             UINavigationBar.appearance().standardAppearance = appearance
+            UINavigationBar.appearance().compactAppearance = appearance
             UINavigationBar.appearance().scrollEdgeAppearance = appearance
-                    
-        }else{
+        } else {
             UINavigationBar.appearance().barTintColor = #colorLiteral(red: 0.979714334, green: 0.8133532405, blue: 0.8037056327, alpha: 1)
-            UINavigationBar.appearance().tintColor = UIColor.black
+            
+            UINavigationBar.appearance().titleTextAttributes = textAttributes
+            
+            UINavigationBar.appearance().isTranslucent = false
             
         }
-        UINavigationBar.appearance().titleTextAttributes = [NSAttributedString.Key.font: UIFont(name: ChooseFont.regular.rawValue, size:20) ?? UIFont()]
-
     }
+    
 }
-

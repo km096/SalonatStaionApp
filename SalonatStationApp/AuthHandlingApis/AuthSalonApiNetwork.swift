@@ -9,7 +9,7 @@ import Foundation
 import Alamofire
 
 enum SalonNetworking {
-    case login(phone: String)
+    case login(phone: String, password: String)
     case resendCode(phone: String)
     case userConfirm(parameters: [String: String])
 }
@@ -44,8 +44,8 @@ extension SalonNetworking: TargetType {
     var task: Task {
         switch self {
             
-        case .login(phone: let phone):
-            return .requestParameters(parameters: ["phone": phone], encoding: JSONEncoding.default)
+        case .login(phone: let phone, password: let password):
+            return .requestParameters(parameters: ["phone": phone, "password": password], encoding: JSONEncoding.default)
         case .resendCode(phone: let phone):
             return .requestParameters(parameters: ["phone": phone], encoding: JSONEncoding.default)
         case .userConfirm(parameters: let parameters):

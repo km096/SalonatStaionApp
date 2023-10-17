@@ -18,7 +18,7 @@ class SalonAPI: BaseAPI<SalonNetworking>, salonAPIProtocol {
     static let shared = SalonAPI()
     
     func login(phone: String, completion: @escaping (Result<SalonUser?, NSError>) -> Void) {
-        self.fetchData(target: .login(phone: phone), responseClass: SalonUser.self) { result in
+        self.fetchData(target: .login(phone: phone, password: "MN123456789"), responseClass: SalonUser.self) { result in
             completion(result)
         }
     }

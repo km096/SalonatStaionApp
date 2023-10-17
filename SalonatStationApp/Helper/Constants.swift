@@ -13,7 +13,9 @@ struct Constants {
     static let storyboardName = "Main"
     
     struct Identifiers {
+        
         static let loginVC = "loginID"
+        static let verifacationCodeVC = "VerifacationCodeID"
         
     }
     

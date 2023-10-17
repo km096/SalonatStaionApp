@@ -1,26 +1,27 @@
 PODS:
   - Alamofire (5.8.0)
-  - SVProgressHUD (2.2.5)
+  - ProgressHUD (13.6.2)
   - SwiftyCodeView (0.3.6):
     - SwiftyCodeView/Core (= 0.3.6)
   - SwiftyCodeView/Core (0.3.6)
 
 DEPENDENCIES:
   - Alamofire
-  - SVProgressHUD
+  - ProgressHUD
   - SwiftyCodeView
 
 SPEC REPOS:
+  https://github.com/CocoaPods/Specs.git:
+    - ProgressHUD
   trunk:
     - Alamofire
-    - SVProgressHUD
     - SwiftyCodeView
 
 SPEC CHECKSUMS:
   Alamofire: 0e92e751b3e9e66d7982db43919d01f313b8eb91
-  SVProgressHUD: 1428aafac632c1f86f62aa4243ec12008d7a51d6
+  ProgressHUD: 355915c8f033e626788fa9b0d99d06e8691595ab
   SwiftyCodeView: 0252e3520749a3fda1a9b141873401f8e6c570ad
 
-PODFILE CHECKSUM: 1d713c13b4ed9d6915a621bef2cdaa3bdf4c2e0e
+PODFILE CHECKSUM: 8a5a7f14a845e27b4a9691d36852a56e7673ff8d
 
 COCOAPODS: 1.12.1

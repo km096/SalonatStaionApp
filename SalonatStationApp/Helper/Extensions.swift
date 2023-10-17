@@ -7,18 +7,42 @@
 
 import UIKit
 
+extension UIViewController {
+    func convertToEnglish(inputStr: String)-> String {
+        let numbersDictionary : Dictionary = [
+            "٠": "0",
+            "١": "1",
+            "٢": "2",
+            "٣": "3",
+            "٤": "4",
+            "٥": "5",
+            "٦": "6",
+            "٧": "7",
+            "٨": "8",
+            "٩": "9"
+        ]
+        var str : String = inputStr
+        
+        for (key,value) in numbersDictionary {
+            str =  str.replacingOccurrences(of: key, with: value)
+        }
+        
+        return str
+    }
+}
+
 extension UINavigationController {
     
     func setNavigationBar(navigationItem: UINavigationItem, title: String, titleColor: UIColor, tintColor: UIColor, font: ChooseFont, fontSize: CGFloat) {
+        
         navigationItem.title = title
         self.navigationBar.titleTextAttributes = [.foregroundColor: titleColor]
         self.navigationBar.tintColor = tintColor
         let textAttributes: [NSAttributedString.Key: Any] = [.font: UIFont(name: CustomFont(index: font), size: fontSize) ?? UIFont()]
         self.navigationBar.titleTextAttributes = textAttributes
-//        [.font: UIFont(name: CustomFont(index: font), size: fontSize) ?? UIFont()]
+        
         self.navigationBar.backIndicatorImage = UIImage(named: "backButton")
         self.navigationBar.backIndicatorTransitionMaskImage = UIImage(named: "backButton")
-//        self.navigationBar.backItem?.title = ""
         navigationItem.backBarButtonItem = UIBarButtonItem(title: "", style: .plain, target: nil, action: nil)
     }
 }
@@ -48,6 +72,17 @@ extension UIButton {
         if let action = action {
             self.addTarget(target, action: action, for: .touchUpInside)
         }
+    }
+    
+    func addUnderline(title: String) {
+        guard let text = self.titleLabel?.text else { return }
+        let attributedString = NSMutableAttributedString(string: title)
+        attributedString.addAttribute(NSAttributedString.Key.foregroundColor, value: self.titleColor(for: .normal)!, range: NSRange(location: 0, length: attributedString.length))
+        attributedString.addAttribute(NSAttributedString.Key.underlineColor, value: self.titleColor(for: .normal)!, range: NSRange(location: 0, length: attributedString.length))
+        attributedString.addAttribute(NSAttributedString.Key.underlineStyle, value: 1, range: NSRange(location: 0, length: attributedString.length))
+        
+        self.setAttributedTitle(attributedString, for: .normal)
+
     }
 }
 
