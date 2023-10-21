@@ -23,6 +23,11 @@
 		F209EEF32ADC82F500528186 /* Cairo-Black.ttf in Resources */ = {isa = PBXBuildFile; fileRef = F209EEEB2ADC82F500528186 /* Cairo-Black.ttf */; };
 		F209EEF42ADC82F500528186 /* Cairo-Regular.ttf in Resources */ = {isa = PBXBuildFile; fileRef = F209EEEC2ADC82F500528186 /* Cairo-Regular.ttf */; };
 		F209EEF62ADC8F5400528186 /* Extensions.swift in Sources */ = {isa = PBXBuildFile; fileRef = F209EEF52ADC8F5400528186 /* Extensions.swift */; };
+		F26010F22AE1820400261555 /* TabBarController.swift in Sources */ = {isa = PBXBuildFile; fileRef = F26010F12AE1820400261555 /* TabBarController.swift */; };
+		F26010F42AE1850000261555 /* CustomTabBar.swift in Sources */ = {isa = PBXBuildFile; fileRef = F26010F32AE1850000261555 /* CustomTabBar.swift */; };
+		F275F9492AE2FED8003BDD2F /* AddServicesView.swift in Sources */ = {isa = PBXBuildFile; fileRef = F275F9482AE2FED8003BDD2F /* AddServicesView.swift */; };
+		F275F94B2AE2FFC8003BDD2F /* AddServicesView.xib in Resources */ = {isa = PBXBuildFile; fileRef = F275F94A2AE2FFC8003BDD2F /* AddServicesView.xib */; };
+		F28F0E7A2AE1E2D70046168D /* HomeVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = F28F0E792AE1E2D70046168D /* HomeVC.swift */; };
 		F2A2F77C2ADD509C0039B9AB /* LoginVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = F2A2F77B2ADD509C0039B9AB /* LoginVC.swift */; };
 		F2A2F77E2ADD53B50039B9AB /* Constants.swift in Sources */ = {isa = PBXBuildFile; fileRef = F2A2F77D2ADD53B50039B9AB /* Constants.swift */; };
 		F2A2F7812ADD8A240039B9AB /* TargetType.swift in Sources */ = {isa = PBXBuildFile; fileRef = F2A2F7802ADD8A240039B9AB /* TargetType.swift */; };
@@ -32,6 +37,8 @@
 		F2A2F78A2ADDDBEA0039B9AB /* NetworkHelper.swift in Sources */ = {isa = PBXBuildFile; fileRef = F2A2F7892ADDDBEA0039B9AB /* NetworkHelper.swift */; };
 		F2A2F78D2ADDDC780039B9AB /* User.swift in Sources */ = {isa = PBXBuildFile; fileRef = F2A2F78C2ADDDC780039B9AB /* User.swift */; };
 		F2A2F7942ADDEDB60039B9AB /* Coder.swift in Sources */ = {isa = PBXBuildFile; fileRef = F2A2F7932ADDEDB60039B9AB /* Coder.swift */; };
+		F2C7BA6C2AE0291C001DF3A4 /* VerifyUser.swift in Sources */ = {isa = PBXBuildFile; fileRef = F2C7BA6B2AE0291C001DF3A4 /* VerifyUser.swift */; };
+		F2C7BA6E2AE05145001DF3A4 /* Models.swift in Sources */ = {isa = PBXBuildFile; fileRef = F2C7BA6D2AE05145001DF3A4 /* Models.swift */; };
 		F2D06CC62ADEC38300E2DD5B /* SalonAPI.swift in Sources */ = {isa = PBXBuildFile; fileRef = F2D06CC52ADEC38300E2DD5B /* SalonAPI.swift */; };
 		F2D06CC82ADEC51600E2DD5B /* SalonResponse.swift in Sources */ = {isa = PBXBuildFile; fileRef = F2D06CC72ADEC51600E2DD5B /* SalonResponse.swift */; };
 		F2D06CCA2ADEDF9000E2DD5B /* VerifacationCodeVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = F2D06CC92ADEDF9000E2DD5B /* VerifacationCodeVC.swift */; };
@@ -58,6 +65,11 @@
 		F209EEEB2ADC82F500528186 /* Cairo-Black.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "Cairo-Black.ttf"; sourceTree = "<group>"; };
 		F209EEEC2ADC82F500528186 /* Cairo-Regular.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "Cairo-Regular.ttf"; sourceTree = "<group>"; };
 		F209EEF52ADC8F5400528186 /* Extensions.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Extensions.swift; sourceTree = "<group>"; };
+		F26010F12AE1820400261555 /* TabBarController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TabBarController.swift; sourceTree = "<group>"; };
+		F26010F32AE1850000261555 /* CustomTabBar.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CustomTabBar.swift; sourceTree = "<group>"; };
+		F275F9482AE2FED8003BDD2F /* AddServicesView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AddServicesView.swift; sourceTree = "<group>"; };
+		F275F94A2AE2FFC8003BDD2F /* AddServicesView.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = AddServicesView.xib; sourceTree = "<group>"; };
+		F28F0E792AE1E2D70046168D /* HomeVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HomeVC.swift; sourceTree = "<group>"; };
 		F2A2F77B2ADD509C0039B9AB /* LoginVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LoginVC.swift; sourceTree = "<group>"; };
 		F2A2F77D2ADD53B50039B9AB /* Constants.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Constants.swift; sourceTree = "<group>"; };
 		F2A2F7802ADD8A240039B9AB /* TargetType.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TargetType.swift; sourceTree = "<group>"; };
@@ -67,6 +79,8 @@
 		F2A2F7892ADDDBEA0039B9AB /* NetworkHelper.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NetworkHelper.swift; sourceTree = "<group>"; };
 		F2A2F78C2ADDDC780039B9AB /* User.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = User.swift; sourceTree = "<group>"; };
 		F2A2F7932ADDEDB60039B9AB /* Coder.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Coder.swift; sourceTree = "<group>"; };
+		F2C7BA6B2AE0291C001DF3A4 /* VerifyUser.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = VerifyUser.swift; sourceTree = "<group>"; };
+		F2C7BA6D2AE05145001DF3A4 /* Models.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Models.swift; sourceTree = "<group>"; };
 		F2D06CC52ADEC38300E2DD5B /* SalonAPI.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SalonAPI.swift; sourceTree = "<group>"; };
 		F2D06CC72ADEC51600E2DD5B /* SalonResponse.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SalonResponse.swift; sourceTree = "<group>"; };
 		F2D06CC92ADEDF9000E2DD5B /* VerifacationCodeVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = VerifacationCodeVC.swift; sourceTree = "<group>"; };
@@ -126,12 +140,10 @@
 				F2A2F78B2ADDDC670039B9AB /* Model */,
 				F2A2F7862ADDB83D0039B9AB /* AuthHandlingApis */,
 				F2A2F77F2ADD89E80039B9AB /* Networking */,
+				F26010F02AE1819800261555 /* Controllers */,
+				F209EED62ADC7A7C00528186 /* Main.storyboard */,
 				F209EED02ADC7A7C00528186 /* AppDelegate.swift */,
 				F209EED22ADC7A7C00528186 /* SceneDelegate.swift */,
-				F209EED42ADC7A7C00528186 /* ViewController.swift */,
-				F2A2F77B2ADD509C0039B9AB /* LoginVC.swift */,
-				F2D06CC92ADEDF9000E2DD5B /* VerifacationCodeVC.swift */,
-				F209EED62ADC7A7C00528186 /* Main.storyboard */,
 				F209EED92ADC7A7E00528186 /* Assets.xcassets */,
 				F209EEDB2ADC7A7E00528186 /* LaunchScreen.storyboard */,
 				F209EEDE2ADC7A7E00528186 /* Info.plist */,
@@ -155,6 +167,28 @@
 			path = Fonts;
 			sourceTree = "<group>";
 		};
+		F26010F02AE1819800261555 /* Controllers */ = {
+			isa = PBXGroup;
+			children = (
+				F275F9472AE2FEBA003BDD2F /* Views */,
+				F209EED42ADC7A7C00528186 /* ViewController.swift */,
+				F2A2F77B2ADD509C0039B9AB /* LoginVC.swift */,
+				F2D06CC92ADEDF9000E2DD5B /* VerifacationCodeVC.swift */,
+				F26010F12AE1820400261555 /* TabBarController.swift */,
+				F28F0E792AE1E2D70046168D /* HomeVC.swift */,
+			);
+			path = Controllers;
+			sourceTree = "<group>";
+		};
+		F275F9472AE2FEBA003BDD2F /* Views */ = {
+			isa = PBXGroup;
+			children = (
+				F275F9482AE2FED8003BDD2F /* AddServicesView.swift */,
+				F275F94A2AE2FFC8003BDD2F /* AddServicesView.xib */,
+			);
+			path = Views;
+			sourceTree = "<group>";
+		};
 		F2A2F77F2ADD89E80039B9AB /* Networking */ = {
 			isa = PBXGroup;
 			children = (
@@ -172,6 +206,7 @@
 				F2A2F7872ADDB8C40039B9AB /* AuthSalonApiNetwork.swift */,
 				F2D06CC52ADEC38300E2DD5B /* SalonAPI.swift */,
 				F2D06CC72ADEC51600E2DD5B /* SalonResponse.swift */,
+				F2C7BA6B2AE0291C001DF3A4 /* VerifyUser.swift */,
 			);
 			path = AuthHandlingApis;
 			sourceTree = "<group>";
@@ -180,6 +215,7 @@
 			isa = PBXGroup;
 			children = (
 				F2A2F78C2ADDDC780039B9AB /* User.swift */,
+				F2C7BA6D2AE05145001DF3A4 /* Models.swift */,
 			);
 			path = Model;
 			sourceTree = "<group>";
@@ -190,6 +226,7 @@
 				F209EEF52ADC8F5400528186 /* Extensions.swift */,
 				F2A2F77D2ADD53B50039B9AB /* Constants.swift */,
 				F2A2F7932ADDEDB60039B9AB /* Coder.swift */,
+				F26010F32AE1850000261555 /* CustomTabBar.swift */,
 			);
 			path = Helper;
 			sourceTree = "<group>";
@@ -262,6 +299,7 @@
 				F209EEF02ADC82F500528186 /* Cairo-Medium.ttf in Resources */,
 				F209EEF42ADC82F500528186 /* Cairo-Regular.ttf in Resources */,
 				F209EED82ADC7A7C00528186 /* Main.storyboard in Resources */,
+				F275F94B2AE2FFC8003BDD2F /* AddServicesView.xib in Resources */,
 				F209EEF32ADC82F500528186 /* Cairo-Black.ttf in Resources */,
 				F209EEEF2ADC82F500528186 /* Cairo-Bold.ttf in Resources */,
 				F209EEED2ADC82F500528186 /* Cairo-ExtraLight.ttf in Resources */,
@@ -327,12 +365,18 @@
 				F2D06CC62ADEC38300E2DD5B /* SalonAPI.swift in Sources */,
 				F2A2F7852ADD93380039B9AB /* ErrorMessage.swift in Sources */,
 				F2A2F77C2ADD509C0039B9AB /* LoginVC.swift in Sources */,
+				F26010F22AE1820400261555 /* TabBarController.swift in Sources */,
 				F2A2F78D2ADDDC780039B9AB /* User.swift in Sources */,
 				F2A2F7942ADDEDB60039B9AB /* Coder.swift in Sources */,
 				F2A2F7832ADD8DC70039B9AB /* BaseApi.swift in Sources */,
 				F2A2F77E2ADD53B50039B9AB /* Constants.swift in Sources */,
+				F28F0E7A2AE1E2D70046168D /* HomeVC.swift in Sources */,
 				F2D06CC82ADEC51600E2DD5B /* SalonResponse.swift in Sources */,
+				F26010F42AE1850000261555 /* CustomTabBar.swift in Sources */,
+				F275F9492AE2FED8003BDD2F /* AddServicesView.swift in Sources */,
+				F2C7BA6E2AE05145001DF3A4 /* Models.swift in Sources */,
 				F2A2F7812ADD8A240039B9AB /* TargetType.swift in Sources */,
+				F2C7BA6C2AE0291C001DF3A4 /* VerifyUser.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

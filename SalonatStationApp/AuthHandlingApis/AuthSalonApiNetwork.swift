@@ -9,9 +9,9 @@ import Foundation
 import Alamofire
 
 enum SalonNetworking {
-    case login(phone: String, password: String)
+    case login(parameters: [String: String])
     case resendCode(phone: String)
-    case userConfirm(parameters: [String: String])
+    case verifyUser(parameters: [String: String])
 }
 
 extension SalonNetworking: TargetType {
@@ -27,7 +27,7 @@ extension SalonNetworking: TargetType {
             return "/user/login"
         case .resendCode:
             return "/Back/resend"
-        case .userConfirm:
+        case .verifyUser:
             return "/Back/verify"
         }
     }
@@ -35,7 +35,7 @@ extension SalonNetworking: TargetType {
     var method: HTTPMethod {
         switch self {
             
-        case .login, .resendCode, .userConfirm:
+        case .login, .resendCode, .verifyUser:
             return .post
         }
         
@@ -44,11 +44,11 @@ extension SalonNetworking: TargetType {
     var task: Task {
         switch self {
             
-        case .login(phone: let phone, password: let password):
-            return .requestParameters(parameters: ["phone": phone, "password": password], encoding: JSONEncoding.default)
+        case .login(parameters: let parameters):
+            return .requestParameters(parameters: parameters, encoding: JSONEncoding.default)
         case .resendCode(phone: let phone):
             return .requestParameters(parameters: ["phone": phone], encoding: JSONEncoding.default)
-        case .userConfirm(parameters: let parameters):
+        case .verifyUser(parameters: let parameters):
             return .requestParameters(parameters: parameters, encoding: JSONEncoding.default)
         }
     }

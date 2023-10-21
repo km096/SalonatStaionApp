@@ -16,6 +16,7 @@ class SceneDelegate: UIResponder, UIWindowSceneDelegate {
         // Use this method to optionally configure and attach the UIWindow `window` to the provided UIWindowScene `scene`.
         // If using a storyboard, the `window` property will automatically be initialized and attached to the scene.
         // This delegate does not imply the connecting scene or session are new (see `application:configurationForConnectingSceneSession` instead).
+        autologin()
         setupNavBar()
         guard let _ = (scene as? UIWindowScene) else { return }
     }
@@ -58,7 +59,6 @@ extension SceneDelegate {
         
         if #available(iOS 13.0, *) {
             let appearance = UINavigationBarAppearance()
-            UITabBarItem.appearance().setTitleTextAttributes(textAttributes, for: .normal)
             
             UINavigationBar.appearance().isTranslucent = false
             appearance.backgroundColor =  #colorLiteral(red: 0.979714334, green: 0.8133532405, blue: 0.8037056327, alpha: 1)
@@ -76,4 +76,21 @@ extension SceneDelegate {
         }
     }
     
+    func autologin() {
+        guard (UserDefaults.standard.value(forKey: Constants.AccessTokenKey) != nil) else {
+            
+            return
+        }
+        DispatchQueue.main.async {
+            self.goToHomeScreen()
+        }
+    }
+    
+    
+    func goToHomeScreen() {
+        guard let homeView = UIStoryboard(name: "Main", bundle: nil).instantiateViewController(withIdentifier: Constants.Identifiers.tabBarController) as? TabBarController else {
+            return
+        }
+        self.window?.rootViewController = homeView
+    }
 }

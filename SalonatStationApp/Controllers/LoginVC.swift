@@ -41,10 +41,15 @@ class LoginVC: UIViewController {
     
     private func login() {
         if let phoneNumber = phoneNumbetTextField.text {
-            SalonAPI.shared.login(phone: convertToEnglish(inputStr: phoneNumber)) { [weak self] result in
+            
+            let parameters = ["phone": convertToEnglish(inputStr: phoneNumber), "password": "MN123456789"]
+            
+            ProgressHUD.show()
+            SalonAPI.shared.login(parameters: parameters) { [weak self] result in
                 guard let strongSelf = self else { return }
+                ProgressHUD.dismiss()
+                
                 switch result {
-                    
                 case .success(let result):
                     guard let message = result?.message else { return }
                     ProgressHUD.showSuccess(message)
@@ -53,7 +58,7 @@ class LoginVC: UIViewController {
                         guard let verifacationCodeVC = strongSelf.storyboard?.instantiateViewController(identifier: Constants.Identifiers.verifacationCodeVC) as? VerifacationCodeVC else {
                             return
                         }
-                        verifacationCodeVC.phoneNumber = phoneNumber
+                        verifacationCodeVC.phoneNumber = strongSelf.convertToEnglish(inputStr: phoneNumber)
                         verifacationCodeVC.token = result?.token
                         verifacationCodeVC.userId = result?.data?.id
                         
@@ -61,12 +66,13 @@ class LoginVC: UIViewController {
                     }
                     
                 case .failure(let error):
-                    if error.code == 401 {
-                        ProgressHUD.showError("Enter the correct phone number")
-                    } else {
-                        ProgressHUD.showError("\(error.localizedDescription)")
+                    DispatchQueue.main.async {
+                        if error.code == 401 {
+                            ProgressHUD.showError("Enter the correct phone number")
+                        } else {
+                            ProgressHUD.showError("\(error.localizedDescription)")
+                        }
                     }
-
                 }
             }
             

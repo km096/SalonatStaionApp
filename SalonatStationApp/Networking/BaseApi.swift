@@ -25,11 +25,42 @@ class BaseAPI<T: TargetType> {
                 return
             }
             
+            if let underlyingError = response.error?.underlyingError {
+                if let urlError = underlyingError as? URLError {
+                    
+                    switch urlError.code {
+                        
+                    case .timedOut:
+                        let error = NSError(domain: target.baseURL, code: 0, userInfo: [NSLocalizedDescriptionKey: ErrorMessage.RequestTimeOut])
+                        completion(.failure(error))
+                        return
+                        
+                    case .notConnectedToInternet:
+                        let error = NSError(domain: target.baseURL, code: 0, userInfo: [NSLocalizedDescriptionKey: ErrorMessage.offlineInternetConnection])
+                        completion(.failure(error))
+                        return
+                        
+                    case .badServerResponse:
+                        let error = NSError(domain: target.baseURL, code: 0, userInfo: [NSLocalizedDescriptionKey: ErrorMessage.badServerResponse])
+                        completion(.failure(error))
+                        return
+                        
+                    case .badURL:
+                        let error = NSError(domain: target.baseURL, code: 0, userInfo: [NSLocalizedDescriptionKey: ErrorMessage.badURL])
+                        completion(.failure(error))
+                        return
+                        
+                    default:
+                        let error = NSError(domain: target.baseURL, code: 0, userInfo: [NSLocalizedDescriptionKey: ErrorMessage.genericError])
+                        completion(.failure(error))
+                        return
+                    }
+                }
+            }
+
+            
             if statusCode == 200 {
                 
-                guard let jsonResponse = try? response.result.get() else {
-                    return
-                }
                 switch response.result {
                     
                 case .success(_):
@@ -54,9 +85,6 @@ class BaseAPI<T: TargetType> {
                     completion(.failure(error))
                 }
             } else {
-//            if statusCode == 401 {
-//
-//            }
                 guard let response = try? response.result.get() as? [String: Any] else {
                     let error = NSError(domain: target.baseURL, code: statusCode, userInfo: [NSLocalizedDescriptionKey: ErrorMessage.genericError])
                     completion(.failure(error))
