@@ -10,17 +10,19 @@ import ProgressHUD
 
 class LoginVC: UIViewController {
     
+    //MARK: - IBOtlets
     @IBOutlet weak var enterPhoneNumLabel: UILabel!
     @IBOutlet weak var phoneNumbetTextField: UITextField!
     @IBOutlet weak var nextButton: UIButton!
     
+    //MARK: - ViewLifeCycle
     override func viewDidLoad() {
         super.viewDidLoad()
         
-        // Do any additional setup after loading the view.
         setupViews()
     }
     
+    //MARK: - UpdateUI
     func setupViews() {
         self.navigationController?.setNavigationBar(navigationItem: navigationItem, title: "login", titleColor: .black, tintColor: .black, font: .light, fontSize: 30)
         self.navigationController?.navigationBar.backItem?.backButtonTitle = ""
@@ -30,6 +32,7 @@ class LoginVC: UIViewController {
         nextButton.initButton(title: "Next", titleColor: .white, backgroundColor: UIColor.buttonColor, radius: 25, font: .regular, fontSize: 26)
     }
     
+    //MARK: - IBActions
     @IBAction func nextButtonPressed(_ sender: Any) {
         
         if phoneNumbetTextField.text?.count != 11 {
@@ -39,6 +42,7 @@ class LoginVC: UIViewController {
         }
     }
     
+    //MARK: - APICalls
     private func login() {
         if let phoneNumber = phoneNumbetTextField.text {
             

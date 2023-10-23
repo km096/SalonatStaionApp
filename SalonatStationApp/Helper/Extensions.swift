@@ -7,6 +7,7 @@
 
 import UIKit
 
+//MARK: - UIViewController
 extension UIViewController {
     func convertToEnglish(inputStr: String)-> String {
         let numbersDictionary : Dictionary = [
@@ -29,8 +30,17 @@ extension UIViewController {
         
         return str
     }
+    
+    func getSafeAreaHeight() -> CGFloat {
+      let viewHeight = view.bounds.height
+      let navigationBarHeight = navigationController?.navigationBar.frame.height ?? 0.0
+      let tabBarHeight = tabBarController?.tabBar.bounds.height ?? 0.0
+
+      return viewHeight - navigationBarHeight - tabBarHeight
+    }
 }
 
+//MARK: - UINavigationController
 extension UINavigationController {
     
     func setNavigationBar(navigationItem: UINavigationItem, title: String, titleColor: UIColor, tintColor: UIColor, font: ChooseFont, fontSize: CGFloat) {
@@ -47,6 +57,28 @@ extension UINavigationController {
     }
 }
 
+extension UIView {
+    func setBorderWithSahdow(cornerRadius: CGFloat, borderWidth: CGFloat, borderColor: CGColor) {
+        
+        self.layer.borderWidth = borderWidth
+        self.layer.borderColor = borderColor
+
+        self.layer.masksToBounds = true
+        self.layer.cornerRadius = cornerRadius
+        
+        
+        
+    }
+    
+    func setShadow(shadowRadius: CGFloat, opacity: Float) {
+        self.layer.shadowOffset = .zero
+        self.layer.shadowRadius = shadowRadius
+        self.layer.shadowOpacity = opacity
+        self.layer.shadowColor = UIColor.black.cgColor
+    }
+}
+
+//MARK: - UILabel
 extension UILabel {
     
     func initLabel(title: String, titleColor: UIColor, backgroundColor: UIColor, aliggment: NSTextAlignment, font: ChooseFont, fontSize: CGFloat) {
@@ -58,7 +90,7 @@ extension UILabel {
     }
 }
 
-
+//MARK: - UIButton
 extension UIButton {
     
     func initButton(title: String, titleColor: UIColor, backgroundColor: UIColor, radius: CGFloat, font: ChooseFont, fontSize: CGFloat, target: Any? = nil, action: Selector? = nil) {
@@ -85,6 +117,7 @@ extension UIButton {
     }
 }
 
+//MARK: - UIImage
 extension UIImage {
     func imageWithColor(color: UIColor) -> UIImage {
             UIGraphicsBeginImageContextWithOptions(self.size, false, self.scale)

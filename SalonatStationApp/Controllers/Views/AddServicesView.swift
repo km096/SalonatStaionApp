@@ -8,18 +8,14 @@
 import UIKit
 
 class AddServicesView: UIView {
-    @IBOutlet var contentView: UIView!
     
+    @IBOutlet var contentView: UIView!
     @IBOutlet weak var addServicesImageView: UIImageView!
     @IBOutlet weak var addServicesToStartLabel: UILabel!
     @IBOutlet weak var addServiceButton: UIButton!
     
+//    @objc var goToAddServiceScreen: (() -> Void)?
     
-//    override func awakeFromNib() {
-//        super.awakeFromNib()
-//        setupView()
-//    }
-//    
     override init(frame: CGRect) {
         super.init(frame: frame)
         commonInit()
@@ -36,13 +32,12 @@ class AddServicesView: UIView {
         contentView.frame = self.bounds
     }
     
-    func setupView() {
-        addServicesToStartLabel.initLabel(title: "Please Add services to start you /n journey...", titleColor: .black, backgroundColor: .clear, aliggment: .center, font: .regular, fontSize: 20)
+    func setupAddServiceView() {
+        addServicesToStartLabel.initLabel(title: "Please Add services to start you \n journey...", titleColor: .black, backgroundColor: .clear, aliggment: .center, font: .regular, fontSize: 20)
         
-        addServiceButton.initButton(title: "Add Service", titleColor: .white, backgroundColor: UIColor.buttonColor, radius: 25, font: .regular, fontSize: 16,target: self, action: #selector(goToAddServiceScreen))
+        addServiceButton.initButton(title: "Add Service", titleColor: .white, backgroundColor: UIColor.buttonColor, radius: 25, font: .regular, fontSize: 16)
     }
     
-    @objc func goToAddServiceScreen() {
-        print("Add service screen")
-    }
+    
+
 }

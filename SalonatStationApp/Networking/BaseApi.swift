@@ -57,7 +57,6 @@ class BaseAPI<T: TargetType> {
                     }
                 }
             }
-
             
             if statusCode == 200 {
                 

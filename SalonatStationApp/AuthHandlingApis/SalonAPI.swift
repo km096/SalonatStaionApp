@@ -14,11 +14,13 @@ protocol salonAPIProtocol {
     func resendCode(phone: String, completion: @escaping (Result<GeneralFormatModel?, NSError>) -> Void)
     
     func verifyUser(parameters: [String: String], completion: @escaping (Result<VerifySalonUser?, NSError>) -> Void)
+    
+    func salonOrders(status: String, skip: Int, completion: @escaping (Result<SalonOrder?, NSError>) -> Void)
+    
+    func getSalonService(id: Int, completion: @escaping (Result<SalonService?, NSError>) -> Void)
 }
 
 class SalonAPI: BaseAPI<SalonNetworking>, salonAPIProtocol {
-    
-    
     
     static let shared = SalonAPI()
     
@@ -27,7 +29,6 @@ class SalonAPI: BaseAPI<SalonNetworking>, salonAPIProtocol {
             completion(result)
         }
     }
-    
     
     func resendCode(phone: String, completion: @escaping (Result<GeneralFormatModel?, NSError>) -> Void) {
         self.fetchData(target: .resendCode(phone: phone), responseClass: GeneralFormatModel.self) { result in
@@ -40,4 +41,17 @@ class SalonAPI: BaseAPI<SalonNetworking>, salonAPIProtocol {
             completion(result)
         }
     }
+    
+    func salonOrders(status: String, skip: Int, completion: @escaping (Result<SalonOrder?, NSError>) -> Void) {
+        self.fetchData(target: .salonOrders(status: status, skip: skip), responseClass: SalonOrder.self) { result in
+            completion(result)
+        }
+    }
+    
+    func getSalonService(id: Int, completion: @escaping (Result<SalonService?, NSError>) -> Void) {
+        self.fetchData(target: .getSalonService(id: id), responseClass: SalonService.self) { result in
+            completion(result)
+        }
+    }
+    
 }

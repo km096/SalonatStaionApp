@@ -1,0 +1,75 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.XIB" version="3.0" toolsVersion="21701" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES">
+    <device id="retina6_12" orientation="portrait" appearance="light"/>
+    <dependencies>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="21679"/>
+        <capability name="Safe area layout guides" minToolsVersion="9.0"/>
+        <capability name="System colors in document resources" minToolsVersion="11.0"/>
+        <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
+    </dependencies>
+    <objects>
+        <placeholder placeholderIdentifier="IBFilesOwner" id="-1" userLabel="File's Owner" customClass="EmptyPendingRequestView" customModule="SalonatStationApp" customModuleProvider="target">
+            <connections>
+                <outlet property="contentView" destination="iN0-l3-epB" id="8hN-9u-gkT"/>
+                <outlet property="emptyPendingImageView" destination="qyY-vx-lii" id="foX-83-qKL"/>
+                <outlet property="emptyPendingLabel" destination="BMN-sd-lxk" id="imp-Fq-k3c"/>
+            </connections>
+        </placeholder>
+        <placeholder placeholderIdentifier="IBFirstResponder" id="-2" customClass="UIResponder"/>
+        <view contentMode="scaleToFill" id="iN0-l3-epB">
+            <rect key="frame" x="0.0" y="0.0" width="323" height="150"/>
+            <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+            <subviews>
+                <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="CC7-Yz-Qea">
+                    <rect key="frame" x="0.0" y="0.0" width="323" height="150"/>
+                    <subviews>
+                        <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="252" verticalHuggingPriority="251" image="Group 3711" translatesAutoresizingMaskIntoConstraints="NO" id="qyY-vx-lii">
+                            <rect key="frame" x="0.0" y="0.0" width="111" height="150"/>
+                            <constraints>
+                                <constraint firstAttribute="width" constant="111" id="H8H-WN-PMI"/>
+                            </constraints>
+                        </imageView>
+                        <label opaque="NO" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" usesAttributedText="YES" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsLetterSpacingToFitWidth="YES" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="BMN-sd-lxk">
+                            <rect key="frame" x="121" y="0.0" width="202" height="150"/>
+                            <attributedString key="attributedText">
+                                <fragment content="There are no requests right now, create new services and offers to be more active.">
+                                    <attributes>
+                                        <font key="NSFont" metaFont="menu" size="14"/>
+                                        <paragraphStyle key="NSParagraphStyle" alignment="natural" lineBreakMode="truncatingTail" baseWritingDirection="leftToRight" lineSpacing="7" tighteningFactorForTruncation="0.0" allowsDefaultTighteningForTruncation="NO"/>
+                                    </attributes>
+                                </fragment>
+                            </attributedString>
+                            <nil key="highlightedColor"/>
+                        </label>
+                    </subviews>
+                    <color key="backgroundColor" systemColor="systemBackgroundColor"/>
+                    <constraints>
+                        <constraint firstAttribute="bottom" secondItem="qyY-vx-lii" secondAttribute="bottom" id="6Ll-NE-2UW"/>
+                        <constraint firstItem="BMN-sd-lxk" firstAttribute="bottom" secondItem="qyY-vx-lii" secondAttribute="bottom" id="TNq-Vm-ZAa"/>
+                        <constraint firstAttribute="trailing" secondItem="BMN-sd-lxk" secondAttribute="trailing" id="Vlb-1h-dcx"/>
+                        <constraint firstItem="BMN-sd-lxk" firstAttribute="top" secondItem="qyY-vx-lii" secondAttribute="top" id="Vpz-VK-YTH"/>
+                        <constraint firstItem="qyY-vx-lii" firstAttribute="top" secondItem="CC7-Yz-Qea" secondAttribute="top" id="mMk-ns-wqh"/>
+                        <constraint firstItem="qyY-vx-lii" firstAttribute="leading" secondItem="CC7-Yz-Qea" secondAttribute="leading" id="uo6-wO-4Sl"/>
+                        <constraint firstItem="BMN-sd-lxk" firstAttribute="leading" secondItem="qyY-vx-lii" secondAttribute="trailing" constant="10" id="v67-fL-sNk"/>
+                    </constraints>
+                </view>
+            </subviews>
+            <viewLayoutGuide key="safeArea" id="vUN-kp-3ea"/>
+            <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+            <constraints>
+                <constraint firstItem="CC7-Yz-Qea" firstAttribute="top" secondItem="iN0-l3-epB" secondAttribute="top" id="Hk4-bM-nXj"/>
+                <constraint firstAttribute="bottom" secondItem="CC7-Yz-Qea" secondAttribute="bottom" id="V50-zG-0F1"/>
+                <constraint firstAttribute="trailing" secondItem="CC7-Yz-Qea" secondAttribute="trailing" id="gwY-rT-JTq"/>
+                <constraint firstItem="CC7-Yz-Qea" firstAttribute="leading" secondItem="iN0-l3-epB" secondAttribute="leading" id="xW3-gm-b4X"/>
+            </constraints>
+            <freeformSimulatedSizeMetrics key="simulatedDestinationMetrics"/>
+            <point key="canvasLocation" x="260.30534351145036" y="-185.21126760563382"/>
+        </view>
+    </objects>
+    <resources>
+        <image name="Group 3711" width="279" height="208"/>
+        <systemColor name="systemBackgroundColor">
+            <color white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+        </systemColor>
+    </resources>
+</document>

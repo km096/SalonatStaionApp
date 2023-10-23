@@ -6,67 +6,126 @@
 //
 
 import UIKit
+import ProgressHUD
 
 class HomeVC: UIViewController {
 
+    //MARK: - IBOutlets
+    @IBOutlet weak var pendingRequestsView: UIView!
+    @IBOutlet weak var pendingRequestsCollectionView: UICollectionView!
+    @IBOutlet weak var servicesTableView: UITableView!
+    @IBOutlet weak var newServiceView: UIView!
+    @IBOutlet weak var addNewServiceButton: UIButton!
+    @IBOutlet weak var emptyPendingRequestView: UIView!
     
-    let label: UILabel = {
-        let label = UILabel()
-        label.initLabel(title: "Home", titleColor: .black, backgroundColor: .clear, aliggment: .center, font: .light, fontSize: 20)
-        return label
-    }()
-    
-    var peendingRequestsCount = 0
-    var requestsCount = 0
-    
+    var pendingRequestsCount = 0
+    var servicesCount = 0
+    var skip = 0
+    var pendingRequests = [SalonOrderData]()
+    var servicesList = [SalonServiceData]()
     var addServiceView: AddServicesView!
     
+    //MARK: - ViewLifeCycle
     override func viewDidLoad() {
         super.viewDidLoad()
-        showAddServiceView()
-        setupAddServiceView()
-        
-    }
-   
-    func setupViews() {
+        setupViews()
 
     }
     
-    func handleNavBar() {
-        navigationItem.title = "Home"
-        self.navigationController?.navigationBar.titleTextAttributes = [.foregroundColor: UIColor.black]
-        self.navigationController?.navigationBar.backgroundColor = #colorLiteral(red: 0.979714334, green: 0.8133532405, blue: 0.8037056327, alpha: 1)
-        self.navigationController?.navigationBar.setBackgroundImage(UIImage(named: "defaultImage"), for: .default)
-        self.navigationController?.navigationBar.titleTextAttributes = [NSAttributedString.Key.font: UIFont(name: ChooseFont.regular.rawValue, size:20) ?? UIFont()]
-        navigationItem.backBarButtonItem = UIBarButtonItem(title: "", style: .plain, target: nil, action: nil)
+    override func viewWillAppear(_ animated: Bool) {
+        super.viewWillAppear(animated)
+        getServiceList()
+        getPendingRequests()
     }
-    
-    func setupAddServiceView() {
-        addServiceView.addServicesToStartLabel.initLabel(title: "Please Add services to start you \n journey...", titleColor: .black, backgroundColor: .clear, aliggment: .center, font: .regular, fontSize: 20)
+   
+    //MARK: - UpdateUI
+    func setupViews() {
+        pendingRequestsCollectionView.delegate = self
+        pendingRequestsCollectionView.dataSource = self
+        pendingRequestsCollectionView.register(PendingRequestsCell.nib, forCellWithReuseIdentifier: PendingRequestsCell.identifier)
         
-            addServiceView.addServiceButton.initButton(title: "Add Service", titleColor: .white, backgroundColor: UIColor.buttonColor, radius: 25, font: .regular, fontSize: 16,target: self, action: #selector(goToAddServiceScreen))
+        servicesTableView.delegate = self
+        servicesTableView.dataSource = self
+        servicesTableView.register(ServicesCell.nib, forCellReuseIdentifier: ServicesCell.identifier)
+        
+        newServiceView.setShadow(shadowRadius: 10, opacity: 0.3)
+        addNewServiceButton.initButton(title: "Add New Service", titleColor: .white, backgroundColor: Constants.Colors.pinkColor, radius: 25, font: .regular, fontSize: 16, target: self, action: #selector(goToAddServiceScreen))
     }
     
-    @objc func goToAddServiceScreen() {
-        print("Add service screen")
-    }
+    
     
     func showAddServiceView() {
-        if peendingRequestsCount == 0 && requestsCount == 0 {
+        if pendingRequestsCount == 0 && servicesCount == 0 {
             addServiceView = AddServicesView(frame: CGRectMake(0, 0, view.bounds.width, getSafeAreaHeight()))
-            
+            addServiceView.setupAddServiceView()
+            addServiceView.addServiceButton.addTarget(self, action: #selector(goToAddServiceScreen), for: .touchUpInside)
             view.addSubview(addServiceView)
+        } 
+    }
+    
+    //MARK: - APICalls
+    func getServiceList() {
+        let id = UserDefaults.standard.integer(forKey: Constants.salonIdKey)
+        ProgressHUD.show()
+        SalonAPI.shared.getSalonService(id: 13) { [weak self] result in
+            guard let strongSelf = self else {
+                return
+            }
+            
+            ProgressHUD.dismiss()
+            switch result {
+                
+            case .success(let result):
+                let data = result?.data
+                strongSelf.servicesList = data ?? []
+                strongSelf.servicesCount = data?.count ?? 0
+                strongSelf.showAddServiceView()
+                DispatchQueue.main.async {
+                    strongSelf.servicesTableView.reloadData()
+                }
+            case .failure(let error):
+                ProgressHUD.showError("\(error.userInfo[NSLocalizedDescriptionKey] ?? "")")
+            }
+            
+        }
+    }
+    
+    func getPendingRequests() {
+        ProgressHUD.show()
+        SalonAPI.shared.salonOrders(status: "completed", skip: skip) { [weak self] result in
+            guard let strongSelf = self else {
+                return
+            }
+            
+            ProgressHUD.dismiss()
+            switch result {
+                
+            case .success(let result):
+                let data = result?.data
+                strongSelf.pendingRequestsCount = data?.count ?? 0
+                
+                strongSelf.pendingRequests = data ?? []
+                strongSelf.emptyPendingRequestView.isHidden = true
+                if strongSelf.pendingRequestsCount == 0 {
+                    strongSelf.emptyPendingRequestView.isHidden = false
+                    strongSelf.pendingRequestsCollectionView.isHidden = true
+                }
+                DispatchQueue.main.async {
+                    strongSelf.pendingRequestsCollectionView.reloadData()
+                }
+            case .failure(let error):
+                ProgressHUD.showError("\(error.userInfo[NSLocalizedDescriptionKey] ?? "")")
+            }
         }
     }
 
-    func getSafeAreaHeight() -> CGFloat {
-      let viewHeight = view.bounds.height
-      let navigationBarHeight = navigationController?.navigationBar.frame.height ?? 0.0
-      let tabBarHeight = tabBarController?.tabBar.bounds.height ?? 0.0
-
-      return viewHeight - navigationBarHeight - tabBarHeight
+    //MARK: - Navigation
+    @objc func goToAddServiceScreen() {
+        guard let addServiceVC = storyboard?.instantiateViewController(withIdentifier: Constants.Identifiers.addServiceVC) as? AddNewServiceVC else {
+            return
+        }
+        self.navigationController?.pushViewController(addServiceVC, animated: true)
     }
-
     
 
 }

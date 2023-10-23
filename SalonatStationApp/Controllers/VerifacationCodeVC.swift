@@ -11,7 +11,7 @@ import SwiftyCodeView
 
 class VerifacationCodeVC: UIViewController {
     
-    
+    //MARK: - IBOutlets
     @IBOutlet weak var enterVerificationCodeLabel: UILabel!
     @IBOutlet weak var verifacationCodeView: SwiftyCodeView!
     @IBOutlet weak var resendButton: UIButton!
@@ -21,14 +21,15 @@ class VerifacationCodeVC: UIViewController {
     var token: String?
     var userId: Int?
     
+    //MARK: - ViewLifeCycle
     override func viewDidLoad() {
         super.viewDidLoad()
-
         setupViews()
         resendCode()
         verifacationCodeView.delegate = self
     }
     
+    //MARK: - UpdateUI
     func setupViews() {
         self.navigationController?.setNavigationBar(navigationItem: navigationItem, title: "Verification Code", titleColor: .black, tintColor: .black, font: .regular, fontSize: 20)
         self.navigationController?.navigationBar.backItem?.backButtonTitle = ""
@@ -42,6 +43,10 @@ class VerifacationCodeVC: UIViewController {
         nextButton.initButton(title: "Next", titleColor: .white, backgroundColor: UIColor.buttonColor, radius: 25, font: .regular, fontSize: 26)
         nextButton.isEnabled = false
         
+    }
+    
+    func checkCode() -> Bool {
+        return verifacationCodeView.code.count == 6
         
     }
     
@@ -54,6 +59,8 @@ class VerifacationCodeVC: UIViewController {
         verifyUser(code: verifacationCodeView.code)
     }
     
+    
+    //MARK: - APICalls
     func verifyUser(code: String) {
         let parameters = ["phone": "0106778411", "code": self.convertToEnglish(inputStr: code)]
         ProgressHUD.show()
@@ -119,14 +126,11 @@ class VerifacationCodeVC: UIViewController {
     }
     
     
-    func checkCode() -> Bool {
-        return verifacationCodeView.code.count == 6
-        
-    }
+    
     
 }
 
-
+//MARK: - SWiftyCodeDelegate
 extension VerifacationCodeVC: SwiftyCodeViewDelegate {
     func codeView(sender: SwiftyCodeView, didFinishInput code: String) -> Bool {
         
