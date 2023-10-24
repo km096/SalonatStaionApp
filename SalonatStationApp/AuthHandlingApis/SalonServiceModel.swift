@@ -7,8 +7,8 @@
 
 import Foundation
 
-// MARK: - SalonService
-struct SalonService: Codable {
+// MARK: - SalonServiceModel
+struct SalonServiceModel: Codable {
     let status: Bool?
     let message: String?
     let data: [SalonServiceData]?

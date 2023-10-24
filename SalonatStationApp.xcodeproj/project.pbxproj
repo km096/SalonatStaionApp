@@ -25,14 +25,14 @@
 		F209EEF62ADC8F5400528186 /* Extensions.swift in Sources */ = {isa = PBXBuildFile; fileRef = F209EEF52ADC8F5400528186 /* Extensions.swift */; };
 		F22733442AE423DF004CC897 /* PendingRequestsCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = F22733422AE423DF004CC897 /* PendingRequestsCell.swift */; };
 		F22733452AE423DF004CC897 /* PendingRequestsCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = F22733432AE423DF004CC897 /* PendingRequestsCell.xib */; };
-		F22733472AE43841004CC897 /* SalonOrder.swift in Sources */ = {isa = PBXBuildFile; fileRef = F22733462AE43841004CC897 /* SalonOrder.swift */; };
+		F22733472AE43841004CC897 /* SalonOrderModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = F22733462AE43841004CC897 /* SalonOrderModel.swift */; };
 		F22733492AE43D78004CC897 /* CollectionViewExt.swift in Sources */ = {isa = PBXBuildFile; fileRef = F22733482AE43D78004CC897 /* CollectionViewExt.swift */; };
 		F227334B2AE43FA8004CC897 /* EmptyPendingRequestView.swift in Sources */ = {isa = PBXBuildFile; fileRef = F227334A2AE43FA8004CC897 /* EmptyPendingRequestView.swift */; };
 		F227334D2AE44033004CC897 /* EmptyPendingRequestView.xib in Resources */ = {isa = PBXBuildFile; fileRef = F227334C2AE44033004CC897 /* EmptyPendingRequestView.xib */; };
 		F227334F2AE472F5004CC897 /* TableViewExt.swift in Sources */ = {isa = PBXBuildFile; fileRef = F227334E2AE472F5004CC897 /* TableViewExt.swift */; };
 		F22733532AE4733A004CC897 /* ServicesCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = F22733512AE4733A004CC897 /* ServicesCell.swift */; };
 		F22733542AE4733A004CC897 /* ServicesCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = F22733522AE4733A004CC897 /* ServicesCell.xib */; };
-		F22733562AE48008004CC897 /* SalonService.swift in Sources */ = {isa = PBXBuildFile; fileRef = F22733552AE48008004CC897 /* SalonService.swift */; };
+		F22733562AE48008004CC897 /* SalonServiceModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = F22733552AE48008004CC897 /* SalonServiceModel.swift */; };
 		F238491B2AE6EBD200B305C2 /* AddNewServiceVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = F238491A2AE6EBD200B305C2 /* AddNewServiceVC.swift */; };
 		F238491D2AE6EF8B00B305C2 /* SalonServiceVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = F238491C2AE6EF8B00B305C2 /* SalonServiceVC.swift */; };
 		F26010F22AE1820400261555 /* TabBarController.swift in Sources */ = {isa = PBXBuildFile; fileRef = F26010F12AE1820400261555 /* TabBarController.swift */; };
@@ -49,7 +49,10 @@
 		F2A2F78A2ADDDBEA0039B9AB /* NetworkHelper.swift in Sources */ = {isa = PBXBuildFile; fileRef = F2A2F7892ADDDBEA0039B9AB /* NetworkHelper.swift */; };
 		F2A2F78D2ADDDC780039B9AB /* User.swift in Sources */ = {isa = PBXBuildFile; fileRef = F2A2F78C2ADDDC780039B9AB /* User.swift */; };
 		F2A2F7942ADDEDB60039B9AB /* Coder.swift in Sources */ = {isa = PBXBuildFile; fileRef = F2A2F7932ADDEDB60039B9AB /* Coder.swift */; };
-		F2C7BA6C2AE0291C001DF3A4 /* VerifyUser.swift in Sources */ = {isa = PBXBuildFile; fileRef = F2C7BA6B2AE0291C001DF3A4 /* VerifyUser.swift */; };
+		F2BDFCFA2AE7D72000DF9BED /* GetGategoriesModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = F2BDFCF92AE7D72000DF9BED /* GetGategoriesModel.swift */; };
+		F2BDFD022AE819E700DF9BED /* AddServiceCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = F2BDFD002AE819E700DF9BED /* AddServiceCell.swift */; };
+		F2BDFD032AE819E700DF9BED /* AddServiceCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = F2BDFD012AE819E700DF9BED /* AddServiceCell.xib */; };
+		F2C7BA6C2AE0291C001DF3A4 /* VerifyUserModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = F2C7BA6B2AE0291C001DF3A4 /* VerifyUserModel.swift */; };
 		F2C7BA6E2AE05145001DF3A4 /* Models.swift in Sources */ = {isa = PBXBuildFile; fileRef = F2C7BA6D2AE05145001DF3A4 /* Models.swift */; };
 		F2D06CC62ADEC38300E2DD5B /* SalonAPI.swift in Sources */ = {isa = PBXBuildFile; fileRef = F2D06CC52ADEC38300E2DD5B /* SalonAPI.swift */; };
 		F2D06CC82ADEC51600E2DD5B /* SalonResponse.swift in Sources */ = {isa = PBXBuildFile; fileRef = F2D06CC72ADEC51600E2DD5B /* SalonResponse.swift */; };
@@ -79,14 +82,14 @@
 		F209EEF52ADC8F5400528186 /* Extensions.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Extensions.swift; sourceTree = "<group>"; };
 		F22733422AE423DF004CC897 /* PendingRequestsCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PendingRequestsCell.swift; sourceTree = "<group>"; };
 		F22733432AE423DF004CC897 /* PendingRequestsCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = PendingRequestsCell.xib; sourceTree = "<group>"; };
-		F22733462AE43841004CC897 /* SalonOrder.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SalonOrder.swift; sourceTree = "<group>"; };
+		F22733462AE43841004CC897 /* SalonOrderModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SalonOrderModel.swift; sourceTree = "<group>"; };
 		F22733482AE43D78004CC897 /* CollectionViewExt.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CollectionViewExt.swift; sourceTree = "<group>"; };
 		F227334A2AE43FA8004CC897 /* EmptyPendingRequestView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = EmptyPendingRequestView.swift; sourceTree = "<group>"; };
 		F227334C2AE44033004CC897 /* EmptyPendingRequestView.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = EmptyPendingRequestView.xib; sourceTree = "<group>"; };
 		F227334E2AE472F5004CC897 /* TableViewExt.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TableViewExt.swift; sourceTree = "<group>"; };
 		F22733512AE4733A004CC897 /* ServicesCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ServicesCell.swift; sourceTree = "<group>"; };
 		F22733522AE4733A004CC897 /* ServicesCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = ServicesCell.xib; sourceTree = "<group>"; };
-		F22733552AE48008004CC897 /* SalonService.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SalonService.swift; sourceTree = "<group>"; };
+		F22733552AE48008004CC897 /* SalonServiceModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SalonServiceModel.swift; sourceTree = "<group>"; };
 		F238491A2AE6EBD200B305C2 /* AddNewServiceVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AddNewServiceVC.swift; sourceTree = "<group>"; };
 		F238491C2AE6EF8B00B305C2 /* SalonServiceVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SalonServiceVC.swift; sourceTree = "<group>"; };
 		F26010F12AE1820400261555 /* TabBarController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TabBarController.swift; sourceTree = "<group>"; };
@@ -103,7 +106,10 @@
 		F2A2F7892ADDDBEA0039B9AB /* NetworkHelper.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NetworkHelper.swift; sourceTree = "<group>"; };
 		F2A2F78C2ADDDC780039B9AB /* User.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = User.swift; sourceTree = "<group>"; };
 		F2A2F7932ADDEDB60039B9AB /* Coder.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Coder.swift; sourceTree = "<group>"; };
-		F2C7BA6B2AE0291C001DF3A4 /* VerifyUser.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = VerifyUser.swift; sourceTree = "<group>"; };
+		F2BDFCF92AE7D72000DF9BED /* GetGategoriesModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GetGategoriesModel.swift; sourceTree = "<group>"; };
+		F2BDFD002AE819E700DF9BED /* AddServiceCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AddServiceCell.swift; sourceTree = "<group>"; };
+		F2BDFD012AE819E700DF9BED /* AddServiceCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = AddServiceCell.xib; sourceTree = "<group>"; };
+		F2C7BA6B2AE0291C001DF3A4 /* VerifyUserModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = VerifyUserModel.swift; sourceTree = "<group>"; };
 		F2C7BA6D2AE05145001DF3A4 /* Models.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Models.swift; sourceTree = "<group>"; };
 		F2D06CC52ADEC38300E2DD5B /* SalonAPI.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SalonAPI.swift; sourceTree = "<group>"; };
 		F2D06CC72ADEC51600E2DD5B /* SalonResponse.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SalonResponse.swift; sourceTree = "<group>"; };
@@ -222,6 +228,7 @@
 				F22733482AE43D78004CC897 /* CollectionViewExt.swift */,
 				F238491C2AE6EF8B00B305C2 /* SalonServiceVC.swift */,
 				F238491A2AE6EBD200B305C2 /* AddNewServiceVC.swift */,
+				F2BDFCFB2AE812F600DF9BED /* AddServiceCell */,
 			);
 			path = Controllers;
 			sourceTree = "<group>";
@@ -256,9 +263,10 @@
 				F2A2F7872ADDB8C40039B9AB /* AuthSalonApiNetwork.swift */,
 				F2D06CC52ADEC38300E2DD5B /* SalonAPI.swift */,
 				F2D06CC72ADEC51600E2DD5B /* SalonResponse.swift */,
-				F2C7BA6B2AE0291C001DF3A4 /* VerifyUser.swift */,
-				F22733462AE43841004CC897 /* SalonOrder.swift */,
-				F22733552AE48008004CC897 /* SalonService.swift */,
+				F2C7BA6B2AE0291C001DF3A4 /* VerifyUserModel.swift */,
+				F22733462AE43841004CC897 /* SalonOrderModel.swift */,
+				F22733552AE48008004CC897 /* SalonServiceModel.swift */,
+				F2BDFCF92AE7D72000DF9BED /* GetGategoriesModel.swift */,
 			);
 			path = AuthHandlingApis;
 			sourceTree = "<group>";
@@ -281,6 +289,15 @@
 				F26010F32AE1850000261555 /* CustomTabBar.swift */,
 			);
 			path = Helper;
+			sourceTree = "<group>";
+		};
+		F2BDFCFB2AE812F600DF9BED /* AddServiceCell */ = {
+			isa = PBXGroup;
+			children = (
+				F2BDFD002AE819E700DF9BED /* AddServiceCell.swift */,
+				F2BDFD012AE819E700DF9BED /* AddServiceCell.xib */,
+			);
+			path = AddServiceCell;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -356,6 +373,7 @@
 				F275F94B2AE2FFC8003BDD2F /* AddServicesView.xib in Resources */,
 				F22733452AE423DF004CC897 /* PendingRequestsCell.xib in Resources */,
 				F209EEF32ADC82F500528186 /* Cairo-Black.ttf in Resources */,
+				F2BDFD032AE819E700DF9BED /* AddServiceCell.xib in Resources */,
 				F209EEEF2ADC82F500528186 /* Cairo-Bold.ttf in Resources */,
 				F209EEED2ADC82F500528186 /* Cairo-ExtraLight.ttf in Resources */,
 			);
@@ -414,9 +432,9 @@
 				F22733442AE423DF004CC897 /* PendingRequestsCell.swift in Sources */,
 				F2A2F7882ADDB8C40039B9AB /* AuthSalonApiNetwork.swift in Sources */,
 				F2D06CCA2ADEDF9000E2DD5B /* VerifacationCodeVC.swift in Sources */,
-				F22733472AE43841004CC897 /* SalonOrder.swift in Sources */,
+				F22733472AE43841004CC897 /* SalonOrderModel.swift in Sources */,
 				F209EED12ADC7A7C00528186 /* AppDelegate.swift in Sources */,
-				F22733562AE48008004CC897 /* SalonService.swift in Sources */,
+				F22733562AE48008004CC897 /* SalonServiceModel.swift in Sources */,
 				F209EED32ADC7A7C00528186 /* SceneDelegate.swift in Sources */,
 				F2A2F78A2ADDDBEA0039B9AB /* NetworkHelper.swift in Sources */,
 				F209EEF62ADC8F5400528186 /* Extensions.swift in Sources */,
@@ -424,8 +442,10 @@
 				F227334B2AE43FA8004CC897 /* EmptyPendingRequestView.swift in Sources */,
 				F227334F2AE472F5004CC897 /* TableViewExt.swift in Sources */,
 				F2A2F7852ADD93380039B9AB /* ErrorMessage.swift in Sources */,
+				F2BDFCFA2AE7D72000DF9BED /* GetGategoriesModel.swift in Sources */,
 				F2A2F77C2ADD509C0039B9AB /* LoginVC.swift in Sources */,
 				F238491D2AE6EF8B00B305C2 /* SalonServiceVC.swift in Sources */,
+				F2BDFD022AE819E700DF9BED /* AddServiceCell.swift in Sources */,
 				F238491B2AE6EBD200B305C2 /* AddNewServiceVC.swift in Sources */,
 				F26010F22AE1820400261555 /* TabBarController.swift in Sources */,
 				F2A2F78D2ADDDC780039B9AB /* User.swift in Sources */,
@@ -440,7 +460,7 @@
 				F22733532AE4733A004CC897 /* ServicesCell.swift in Sources */,
 				F2C7BA6E2AE05145001DF3A4 /* Models.swift in Sources */,
 				F2A2F7812ADD8A240039B9AB /* TargetType.swift in Sources */,
-				F2C7BA6C2AE0291C001DF3A4 /* VerifyUser.swift in Sources */,
+				F2C7BA6C2AE0291C001DF3A4 /* VerifyUserModel.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

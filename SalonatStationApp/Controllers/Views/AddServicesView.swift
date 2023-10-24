@@ -14,7 +14,6 @@ class AddServicesView: UIView {
     @IBOutlet weak var addServicesToStartLabel: UILabel!
     @IBOutlet weak var addServiceButton: UIButton!
     
-//    @objc var goToAddServiceScreen: (() -> Void)?
     
     override init(frame: CGRect) {
         super.init(frame: frame)

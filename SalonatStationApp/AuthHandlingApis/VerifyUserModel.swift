@@ -9,7 +9,7 @@ import Foundation
 
 
 // MARK: - SalonUser
-struct VerifySalonUser: Codable {
+struct VerifyUserModel: Codable {
     let status: Bool?
     let message: String?
     let data: DataClass?

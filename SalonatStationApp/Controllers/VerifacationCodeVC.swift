@@ -94,7 +94,6 @@ class VerifacationCodeVC: UIViewController {
             case .failure(let error):
                 DispatchQueue.main.async {
                     ProgressHUD.showError("\(error.userInfo[NSLocalizedDescriptionKey] ?? ErrorMessage.genericError)")
-                    print("\(error.userInfo[NSLocalizedDescriptionKey] ?? ErrorMessage.genericError)")
                 }
             }
         }

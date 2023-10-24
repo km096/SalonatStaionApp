@@ -76,15 +76,18 @@ class HomeVC: UIViewController {
             switch result {
                 
             case .success(let result):
-                let data = result?.data
-                strongSelf.servicesList = data ?? []
-                strongSelf.servicesCount = data?.count ?? 0
-                strongSelf.showAddServiceView()
+                guard let data = result?.data else { return }
+                strongSelf.servicesList = data
+                strongSelf.servicesCount = data.count
+                
                 DispatchQueue.main.async {
+                    strongSelf.showAddServiceView()
                     strongSelf.servicesTableView.reloadData()
                 }
             case .failure(let error):
-                ProgressHUD.showError("\(error.userInfo[NSLocalizedDescriptionKey] ?? "")")
+                DispatchQueue.main.async {
+                    ProgressHUD.showError("\(error.userInfo[NSLocalizedDescriptionKey] ?? "")")
+                }
             }
             
         }
@@ -101,20 +104,24 @@ class HomeVC: UIViewController {
             switch result {
                 
             case .success(let result):
-                let data = result?.data
-                strongSelf.pendingRequestsCount = data?.count ?? 0
+                guard let data = result?.data else { return }
+                strongSelf.pendingRequestsCount = data.count
+                strongSelf.pendingRequests = data
                 
-                strongSelf.pendingRequests = data ?? []
-                strongSelf.emptyPendingRequestView.isHidden = true
-                if strongSelf.pendingRequestsCount == 0 {
-                    strongSelf.emptyPendingRequestView.isHidden = false
-                    strongSelf.pendingRequestsCollectionView.isHidden = true
-                }
                 DispatchQueue.main.async {
+                    if strongSelf.pendingRequestsCount == 0 {
+                        strongSelf.emptyPendingRequestView.isHidden = false
+                        strongSelf.pendingRequestsCollectionView.isHidden = true
+                    }
+                    strongSelf.emptyPendingRequestView.isHidden = true
+
                     strongSelf.pendingRequestsCollectionView.reloadData()
                 }
             case .failure(let error):
-                ProgressHUD.showError("\(error.userInfo[NSLocalizedDescriptionKey] ?? "")")
+                DispatchQueue.main.async {
+                    ProgressHUD.showError("\(error.userInfo[NSLocalizedDescriptionKey] ?? "")")
+                }
+                
             }
         }
     }

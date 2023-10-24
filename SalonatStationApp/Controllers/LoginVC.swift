@@ -62,9 +62,6 @@ class LoginVC: UIViewController {
                         guard let verifacationCodeVC = strongSelf.storyboard?.instantiateViewController(identifier: Constants.Identifiers.verifacationCodeVC) as? VerifacationCodeVC else {
                             return
                         }
-                        verifacationCodeVC.phoneNumber = strongSelf.convertToEnglish(inputStr: phoneNumber)
-                        verifacationCodeVC.token = result?.token
-                        verifacationCodeVC.userId = result?.data?.id
                         
                         strongSelf.navigationController?.pushViewController(verifacationCodeVC, animated: true)
                     }

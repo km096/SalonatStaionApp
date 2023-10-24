@@ -13,11 +13,13 @@ protocol salonAPIProtocol {
     
     func resendCode(phone: String, completion: @escaping (Result<GeneralFormatModel?, NSError>) -> Void)
     
-    func verifyUser(parameters: [String: String], completion: @escaping (Result<VerifySalonUser?, NSError>) -> Void)
+    func verifyUser(parameters: [String: String], completion: @escaping (Result<VerifyUserModel?, NSError>) -> Void)
     
-    func salonOrders(status: String, skip: Int, completion: @escaping (Result<SalonOrder?, NSError>) -> Void)
+    func salonOrders(status: String, skip: Int, completion: @escaping (Result<SalonOrderModel?, NSError>) -> Void)
     
-    func getSalonService(id: Int, completion: @escaping (Result<SalonService?, NSError>) -> Void)
+    func getSalonService(id: Int, completion: @escaping (Result<SalonServiceModel?, NSError>) -> Void)
+    
+    func getCategories(completion: @escaping (Result<GetCategoriesModel?, NSError>) -> Void)
 }
 
 class SalonAPI: BaseAPI<SalonNetworking>, salonAPIProtocol {
@@ -36,20 +38,26 @@ class SalonAPI: BaseAPI<SalonNetworking>, salonAPIProtocol {
         }
     }
     
-    func verifyUser(parameters: [String : String], completion: @escaping (Result<VerifySalonUser?, NSError>) -> Void) {
-        self.fetchData(target: .verifyUser(parameters: parameters), responseClass: VerifySalonUser.self) { result in
+    func verifyUser(parameters: [String : String], completion: @escaping (Result<VerifyUserModel?, NSError>) -> Void) {
+        self.fetchData(target: .verifyUser(parameters: parameters), responseClass: VerifyUserModel.self) { result in
             completion(result)
         }
     }
     
-    func salonOrders(status: String, skip: Int, completion: @escaping (Result<SalonOrder?, NSError>) -> Void) {
-        self.fetchData(target: .salonOrders(status: status, skip: skip), responseClass: SalonOrder.self) { result in
+    func salonOrders(status: String, skip: Int, completion: @escaping (Result<SalonOrderModel?, NSError>) -> Void) {
+        self.fetchData(target: .salonOrders(status: status, skip: skip), responseClass: SalonOrderModel.self) { result in
             completion(result)
         }
     }
     
-    func getSalonService(id: Int, completion: @escaping (Result<SalonService?, NSError>) -> Void) {
-        self.fetchData(target: .getSalonService(id: id), responseClass: SalonService.self) { result in
+    func getSalonService(id: Int, completion: @escaping (Result<SalonServiceModel?, NSError>) -> Void) {
+        self.fetchData(target: .getSalonService(id: id), responseClass: SalonServiceModel.self) { result in
+            completion(result)
+        }
+    }
+    
+    func getCategories(completion: @escaping (Result<GetCategoriesModel?, NSError>) -> Void) {
+        self.fetchData(target: .getCategories, responseClass: GetCategoriesModel.self) { result in
             completion(result)
         }
     }

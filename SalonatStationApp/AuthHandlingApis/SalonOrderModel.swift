@@ -7,8 +7,8 @@
 
 import UIKit
 
-// MARK: - SalonOrder
-struct SalonOrder: Codable {
+// MARK: - SalonOrderModel
+struct SalonOrderModel: Codable {
     let status: Bool?
     let message: String?
     let data: [SalonOrderData]?

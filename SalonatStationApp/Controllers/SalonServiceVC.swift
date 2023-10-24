@@ -32,6 +32,7 @@ class SalonServiceVC: UIViewController {
         getServiceList()
     }
     
+    //MARK: - Setup
     func setupViews() {
         self.navigationController?.setNavigationBar(navigationItem: navigationItem, title: "Service", titleColor: .black, tintColor: .black, font: .regular, fontSize: 20)
         self.navigationController?.navigationBar.backItem?.backButtonTitle = ""
@@ -41,6 +42,7 @@ class SalonServiceVC: UIViewController {
         
     }
     
+    
     func setupTableView() {
         serviceTableView.delegate = self
         serviceTableView.dataSource = self
@@ -48,6 +50,17 @@ class SalonServiceVC: UIViewController {
         
     }
     
+    func showAddServiceView() {
+        if servicesCount == 0 {
+            addServiceView = AddServicesView(frame: CGRectMake(0, 0, view.bounds.width, getSafeAreaHeight()))
+            addServiceView.setupAddServiceView()
+            addServiceView.addServiceButton.addTarget(self, action: #selector(goToAddServiceScreen), for: .touchUpInside)
+            newServiceBackView.isHidden = true
+            view.addSubview(addServiceView)
+        }
+    }
+    
+    //MARK: - ApiCalls
     func getServiceList() {
         let id = UserDefaults.standard.integer(forKey: Constants.salonIdKey)
         ProgressHUD.show()
@@ -60,9 +73,9 @@ class SalonServiceVC: UIViewController {
             switch result {
                 
             case .success(let result):
-                let data = result?.data
-                strongSelf.salonServiceList = data ?? []
-//                strongSelf.servicesCount = data?.count ?? 0
+                guard let data = result?.data else { return }
+                strongSelf.salonServiceList = data
+                strongSelf.servicesCount = data.count
                 strongSelf.showAddServiceView()
                 DispatchQueue.main.async {
                     strongSelf.serviceTableView.reloadData()
@@ -74,15 +87,7 @@ class SalonServiceVC: UIViewController {
         }
     }
     
-    func showAddServiceView() {
-        if servicesCount == 0 {
-            addServiceView = AddServicesView(frame: CGRectMake(0, 0, view.bounds.width, getSafeAreaHeight()))
-            addServiceView.setupAddServiceView()
-            addServiceView.addServiceButton.addTarget(self, action: #selector(goToAddServiceScreen), for: .touchUpInside)
-            newServiceBackView.isHidden = true
-            view.addSubview(addServiceView)
-        }
-    }
+    
     
     //MARK: - Navigation
     @objc func goToAddServiceScreen() {
