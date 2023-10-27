@@ -7,7 +7,7 @@
 
 import UIKit
 
-class ViewController: UIViewController {
+class SalonOrCustomerVC: UIViewController {
 
     //MARK: - IBOutlets
     @IBOutlet weak var continueAsLabel: UILabel!

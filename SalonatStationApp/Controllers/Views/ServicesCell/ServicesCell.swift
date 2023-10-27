@@ -34,8 +34,8 @@ class ServicesCell: UITableViewCell {
         
         categoryNameLabel.initLabel(title: "(\(model.categoryName ?? "Hair Cut"))", titleColor: Constants.Colors.pinkColor, backgroundColor: .clear, aliggment: .left, font: .semiBold, fontSize: 15)
         
-        backView.setBorderWithSahdow(cornerRadius: 10, borderWidth: 1, borderColor: Constants.Colors.pinkColor.cgColor)
-        backView.setShadow(shadowRadius: 5, opacity: 0.5)
+//        backView.setBorderWithSahdow(cornerRadius: 5, borderWidth: 1, borderColor: Constants.Colors.pinkColor.cgColor)
+        backView.setShadow(shadowRadius: 20, opacity: 1)
     }
     
 }

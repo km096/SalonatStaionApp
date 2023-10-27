@@ -17,12 +17,18 @@ protocol salonAPIProtocol {
     
     func salonOrders(status: String, skip: Int, completion: @escaping (Result<SalonOrderModel?, NSError>) -> Void)
     
-    func getSalonService(id: Int, completion: @escaping (Result<SalonServiceModel?, NSError>) -> Void)
+    func salonService(id: Int, skip: Int, completion: @escaping (Result<SalonServiceModel?, NSError>) -> Void)
     
     func getCategories(completion: @escaping (Result<GetCategoriesModel?, NSError>) -> Void)
+    
+    func getServices(categoryId: Int, completion: @escaping (Result<GetServicesModel?, NSError>) -> Void)
+    
+    func salonAddService(dic: [String: Any], completion: @escaping (Result<GeneralFormatModel?,NSError>) -> Void)
 }
 
 class SalonAPI: BaseAPI<SalonNetworking>, salonAPIProtocol {
+    
+    
     
     static let shared = SalonAPI()
     
@@ -50,14 +56,26 @@ class SalonAPI: BaseAPI<SalonNetworking>, salonAPIProtocol {
         }
     }
     
-    func getSalonService(id: Int, completion: @escaping (Result<SalonServiceModel?, NSError>) -> Void) {
-        self.fetchData(target: .getSalonService(id: id), responseClass: SalonServiceModel.self) { result in
+    func salonService(id: Int, skip: Int, completion: @escaping (Result<SalonServiceModel?, NSError>) -> Void) {
+        self.fetchData(target: .salonServices(id: id, skip: skip), responseClass: SalonServiceModel.self) { result in
             completion(result)
         }
     }
     
     func getCategories(completion: @escaping (Result<GetCategoriesModel?, NSError>) -> Void) {
         self.fetchData(target: .getCategories, responseClass: GetCategoriesModel.self) { result in
+            completion(result)
+        }
+    }
+    
+    func getServices(categoryId: Int, completion: @escaping (Result<GetServicesModel?, NSError>) -> Void) {
+        self.fetchData(target: .getServices(categoryId: categoryId), responseClass: GetServicesModel.self) { result in
+            completion(result)
+        }
+    }
+    
+    func salonAddService(dic: [String: Any], completion: @escaping (Result<GeneralFormatModel?,NSError>) -> Void) {
+        self.fetchData(target: .salonAddServices(dic: dic), responseClass: GeneralFormatModel.self) { result in
             completion(result)
         }
     }

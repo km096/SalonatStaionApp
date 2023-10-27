@@ -64,7 +64,7 @@ class SalonServiceVC: UIViewController {
     func getServiceList() {
         let id = UserDefaults.standard.integer(forKey: Constants.salonIdKey)
         ProgressHUD.show()
-        SalonAPI.shared.getSalonService(id: 13) { [weak self] result in
+        SalonAPI.shared.salonService(id: id, skip: 0) { [weak self] result in
             guard let strongSelf = self else {
                 return
             }
@@ -104,7 +104,7 @@ class SalonServiceVC: UIViewController {
 extension SalonServiceVC: UITableViewDelegate, UITableViewDataSource {
     
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
-        return 0 //salonServiceList.count
+        return salonServiceList.count
     }
     
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {

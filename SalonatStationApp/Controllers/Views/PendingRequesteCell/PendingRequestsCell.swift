@@ -35,8 +35,8 @@ class PendingRequestsCell: UICollectionViewCell {
     func setupCell(model: SalonOrderData) {
         orderIdLabel.initLabel(title: "#\(model.id ?? 0)", titleColor: .black, backgroundColor: .clear, aliggment: .left, font: .regular, fontSize: 16)
         serviceDateLabel.initLabel(title: "\(model.date ?? "" )", titleColor: .black, backgroundColor: .clear, aliggment: .left, font: .regular, fontSize: 16)
-        customerNameLabel.initLabel(title: "\(model.userName ?? "")", titleColor: .black, backgroundColor: .clear, aliggment: .left, font: .regular, fontSize: 16)
-        phoneNumbaerLabel.initLabel(title: "\(model.userPhone ?? "")", titleColor: .black, backgroundColor: .clear, aliggment: .left, font: .regular, fontSize: 16)
+        customerNameLabel.initLabel(title: "\(model.userName ?? "name")", titleColor: .black, backgroundColor: .clear, aliggment: .left, font: .regular, fontSize: 16)
+        phoneNumbaerLabel.initLabel(title: "\(model.userPhone ?? "number")", titleColor: .black, backgroundColor: .clear, aliggment: .left, font: .regular, fontSize: 16)
         numOfCustomersLabel.initLabel(title: "\(model.personNumber ?? 0)", titleColor: .black, backgroundColor: .clear, aliggment: .left, font: .regular, fontSize: 16)
         backview.setBorderWithSahdow(cornerRadius: 5, borderWidth: 1, borderColor: Constants.Colors.pinkColor.cgColor)
         backview.setShadow(shadowRadius: 5, opacity: 0.5)

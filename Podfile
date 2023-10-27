@@ -10,5 +10,5 @@ target 'SalonatStationApp' do
 pod 'Alamofire'
 pod 'SwiftyCodeView'
 pod 'ProgressHUD'
-
+pod 'HorizonCalendar'
 end

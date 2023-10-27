@@ -48,6 +48,9 @@ class HomeVC: UIViewController {
         servicesTableView.dataSource = self
         servicesTableView.register(ServicesCell.nib, forCellReuseIdentifier: ServicesCell.identifier)
         
+        self.navigationController?.setNavigationBar(navigationItem: navigationItem, title: "Home", titleColor: .black, tintColor: .black, font: .light, fontSize: 30)
+        self.navigationController?.navigationBar.backItem?.backButtonTitle = ""
+        
         newServiceView.setShadow(shadowRadius: 10, opacity: 0.3)
         addNewServiceButton.initButton(title: "Add New Service", titleColor: .white, backgroundColor: Constants.Colors.pinkColor, radius: 25, font: .regular, fontSize: 16, target: self, action: #selector(goToAddServiceScreen))
     }
@@ -60,14 +63,16 @@ class HomeVC: UIViewController {
             addServiceView.setupAddServiceView()
             addServiceView.addServiceButton.addTarget(self, action: #selector(goToAddServiceScreen), for: .touchUpInside)
             view.addSubview(addServiceView)
+            addServiceView.isHidden = true
         } 
     }
     
     //MARK: - APICalls
     func getServiceList() {
         let id = UserDefaults.standard.integer(forKey: Constants.salonIdKey)
+//        print("id: \(id)")
         ProgressHUD.show()
-        SalonAPI.shared.getSalonService(id: 13) { [weak self] result in
+        SalonAPI.shared.salonService(id: id, skip: 0) { [weak self] result in
             guard let strongSelf = self else {
                 return
             }
@@ -79,7 +84,7 @@ class HomeVC: UIViewController {
                 guard let data = result?.data else { return }
                 strongSelf.servicesList = data
                 strongSelf.servicesCount = data.count
-                
+                print("count: \(data.count)")
                 DispatchQueue.main.async {
                     strongSelf.showAddServiceView()
                     strongSelf.servicesTableView.reloadData()

@@ -37,7 +37,7 @@ class TabBarController: UITabBarController {
         
     }
 
-    ///Add tabbar item indicator uper line
+      ///Add tabbar item indicator uper line
       func addTabbarIndicatorView(index: Int, isFirstTime: Bool = false){
           guard let tabView = tabBar.items?[index].value(forKey: "view") as? UIView else {
               return

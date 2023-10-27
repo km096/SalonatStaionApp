@@ -38,6 +38,79 @@ extension UIViewController {
 
       return viewHeight - navigationBarHeight - tabBarHeight
     }
+    
+    func initializeHideKeyboard() { 
+        let tap: UITapGestureRecognizer = UITapGestureRecognizer(target: self, action: #selector(UIViewController.dismissKeyboard))
+        tap.cancelsTouchesInView = false
+        view.addGestureRecognizer(tap)
+    }
+    
+    @objc func dismissKeyboard() {
+        view.endEditing(true)
+    }
+    
+    func convertTimeFrom12To24(time12: String) -> String {
+        if time12 == "" {
+            return ""
+        }
+        let timeComponents = time12.components(separatedBy: " ")
+        guard timeComponents.count == 2,
+              let hour = Int(timeComponents[0]),
+              let minutes = Int(timeComponents[1].components(separatedBy: ":")[0]) else {
+            return "ivalid time format"
+        }
+        
+        var time24 = ""
+        
+        if timeComponents[1].contains("AM") || timeComponents[1].contains("am") {
+            if hour == 12 {
+                time24 = "00:\(minutes)"
+            } else {
+                time24 = "\(hour):\(minutes)"
+            }
+            
+        } else if timeComponents[1].contains("PM") || timeComponents[1].contains("pm") {
+            if hour == 12 {
+                time24 = "12:\(minutes)"
+            } else {
+                time24 = "\(hour + 12):\(minutes)"
+            }
+        } else {
+            return "ivalid time format"
+        }
+        return time24
+    }
+    
+    func convertTimeFrom24To12(time24: String) -> String {
+        if time24 == "" {
+            return ""
+        }
+        let timeComponents = time24.components(separatedBy: " ")
+        guard timeComponents.count == 2,
+              let hour = Int(timeComponents[0]),
+              let minutes = Int(timeComponents[1]) else {
+            return "ivalid time format"
+        }
+        
+        var time12 = ""
+        var period = ""
+        
+        if hour == 0 {
+            time12 = "12:\(minutes)"
+            period = " AM"
+        } else if hour == 12 {
+            time12 = "12:\(minutes)"
+            period = " PM"
+        } else if hour > 12 {
+            time12 = "\(hour - 12):\(minutes)"
+            period = " PM"
+        } else {
+            time12 = "\(hour):\(minutes)"
+            period = " AM"
+        }
+        
+        return time12 + period
+    }
 }
 
 //MARK: - UINavigationController
@@ -57,6 +130,7 @@ extension UINavigationController {
     }
 }
 
+    //MARK: - UIView
 extension UIView {
     func setBorderWithSahdow(cornerRadius: CGFloat, borderWidth: CGFloat, borderColor: CGColor) {
         
@@ -71,10 +145,45 @@ extension UIView {
     }
     
     func setShadow(shadowRadius: CGFloat, opacity: Float) {
-        self.layer.shadowOffset = .zero
+        self.layer.shadowOffset = CGSize(width: 1, height: 1)
+        self.layer.masksToBounds = false
         self.layer.shadowRadius = shadowRadius
         self.layer.shadowOpacity = opacity
         self.layer.shadowColor = UIColor.black.cgColor
+    }
+    
+    // Add borderWidth in Story Bord
+    @IBInspectable var borderWidth: CGFloat
+        {
+        set {
+            layer.borderWidth = newValue
+        }
+        get {
+            return layer.borderWidth
+        }
+    }
+    
+    // Add cornerRadius in Story Bord
+    @IBInspectable var cornerRadius: CGFloat
+        {
+        set {
+            layer.cornerRadius = newValue
+        }
+        get {
+            return layer.cornerRadius
+        }
+    }
+    
+    // Add borderColor in Story Bord
+    @IBInspectable var borderColor: UIColor? {
+        set {
+            guard let uiColor = newValue else { return }
+            layer.borderColor = uiColor.cgColor
+        }
+        get {
+            guard let color = layer.borderColor else { return nil }
+            return UIColor(cgColor: color)
+        }
     }
 }
 

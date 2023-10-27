@@ -1,5 +1,6 @@
 PODS:
   - Alamofire (5.8.0)
+  - HorizonCalendar (1.16.0)
   - ProgressHUD (13.6.2)
   - SwiftyCodeView (0.3.6):
     - SwiftyCodeView/Core (= 0.3.6)
@@ -7,11 +8,13 @@ PODS:
 
 DEPENDENCIES:
   - Alamofire
+  - HorizonCalendar
   - ProgressHUD
   - SwiftyCodeView
 
 SPEC REPOS:
   https://github.com/CocoaPods/Specs.git:
+    - HorizonCalendar
     - ProgressHUD
   trunk:
     - Alamofire
@@ -19,9 +22,10 @@ SPEC REPOS:
 
 SPEC CHECKSUMS:
   Alamofire: 0e92e751b3e9e66d7982db43919d01f313b8eb91
+  HorizonCalendar: 90d7281cf1cd0cb3fae1d3e53f6f7fd24fda5a0e
   ProgressHUD: 355915c8f033e626788fa9b0d99d06e8691595ab
   SwiftyCodeView: 0252e3520749a3fda1a9b141873401f8e6c570ad
 
-PODFILE CHECKSUM: 8a5a7f14a845e27b4a9691d36852a56e7673ff8d
+PODFILE CHECKSUM: d8faf5e02f099855ff9e32bbb25cc813362fbec8
 
 COCOAPODS: 1.12.1

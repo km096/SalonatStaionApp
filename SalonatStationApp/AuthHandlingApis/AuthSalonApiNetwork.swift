@@ -13,8 +13,10 @@ enum SalonNetworking {
     case resendCode(phone: String)
     case verifyUser(parameters: [String: String])
     case salonOrders(status: String, skip: Int)
+    case salonServices(id: Int, skip: Int)
     case getCategories
-    case getSalonService(id: Int)
+    case getServices(categoryId: Int)
+    case salonAddServices(dic:[String:Any])
 }
 
 extension SalonNetworking: TargetType {
@@ -34,21 +36,25 @@ extension SalonNetworking: TargetType {
             return "/Back/verify"
         case .salonOrders(status: let status, skip: let skip):
             return "/Back/orders?status=\(status)&skip=\(skip)"
+        case .salonServices(id: let id, skip: let skip):
+            return "/Back/center/\(id)/services?skip=\(skip)"
         case .getCategories:
             return "/Back/categories"
-        case .getSalonService(id: let id):
-            return "/Back/services?center_id=\(id)"
-//            return "/Back/center/\(id)/services?skip=\(skip)"
+        case .getServices(categoryId: let categoryId):
+            return "/Back/services?category_id=\(categoryId)"
+
+        case .salonAddServices:
+            return "/Back/addservice"
         }
     }
     
     var method: HTTPMethod {
         switch self {
             
-        case .login, .resendCode, .verifyUser:
+        case .login, .resendCode, .verifyUser, .salonAddServices:
             return .post
         
-        case .salonOrders, .getCategories, .getSalonService:
+        case .salonOrders, .salonServices, .getCategories, .getServices:
             return .get
         }
         
@@ -63,8 +69,10 @@ extension SalonNetworking: TargetType {
             return .requestParameters(parameters: ["phone": phone], encoding: JSONEncoding.default)
         case .verifyUser(parameters: let parameters):
             return .requestParameters(parameters: parameters, encoding: JSONEncoding.default)
-        case .salonOrders, .getCategories, .getSalonService:
+        case .salonOrders, .salonServices, .getCategories, .getServices:
             return .requestPlain
+        case .salonAddServices(dic: let dic):
+            return .requestParameters(parameters: dic, encoding: JSONEncoding.default)
         }
     }
     

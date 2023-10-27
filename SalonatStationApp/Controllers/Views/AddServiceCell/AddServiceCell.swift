@@ -16,7 +16,6 @@ class AddServiceCell: UITableViewCell {
     //Buttons
     @IBOutlet weak var addServiceButton: UIButton!
     @IBOutlet weak var addOfferButton: UIButton!
-    @IBOutlet weak var deleteOfferButton: UIButton!
     @IBOutlet weak var additionsButton: UIButton!
     
     //Labels
@@ -34,27 +33,20 @@ class AddServiceCell: UITableViewCell {
     @IBOutlet weak var backView: UIView!
     @IBOutlet weak var offerSection: UIStackView!
     
+    @IBOutlet weak var additionsSection: UIStackView!
+    
+
+    
     override func awakeFromNib() {
         super.awakeFromNib()
         setupViews()
-    }
-
-    override func setSelected(_ selected: Bool, animated: Bool) {
-        super.setSelected(selected, animated: animated)
-
-        // Configure the view for the selected state
     }
     
     func setupViews() {
         addOfferLabel.initLabel(title: "Add Offer", titleColor: .black, backgroundColor: .clear, aliggment: .left, font: .regular, fontSize: 14)
         additionsLabel.initLabel(title: "Additios", titleColor: .black, backgroundColor: .clear, aliggment: .left, font: .regular, fontSize: 14)
-        
+//        deleteOfferButton.initButton(title: "Delete", titleColor: .red, backgroundColor: .clear, radius: 0, font: .light, fontSize: 12)
         backView.setBorderWithSahdow(cornerRadius: 5, borderWidth: 1, borderColor: Constants.Colors.pinkColor.cgColor)
-        let addService = #imageLiteral(resourceName: "Rectangle 123")
-        addServiceButton.setImage(UIImage(named: "unchecked"), for: .normal)
-        addOfferButton.setImage(UIImage(named: "Rectangle 123"), for: .normal)
-        additionsButton.setImage(UIImage(named: "Rectangle 123"), for: .normal)
-        
         
     }
     

@@ -62,38 +62,41 @@ class VerifacationCodeVC: UIViewController {
     
     //MARK: - APICalls
     func verifyUser(code: String) {
-        let parameters = ["phone": "0106778411", "code": self.convertToEnglish(inputStr: code)]
-        ProgressHUD.show()
-        
-        SalonAPI.shared.verifyUser(parameters: parameters) { [weak self] result in
-            guard let strongSelf = self else { return }
+        //        "0106778411"
+        if let phoneNumber = phoneNumber {
+            let parameters = ["phone": phoneNumber, "code": self.convertToEnglish(inputStr: code)]
+            ProgressHUD.show()
             
-            ProgressHUD.dismiss()
-            switch result {
+            SalonAPI.shared.verifyUser(parameters: parameters) { [weak self] result in
+                guard let strongSelf = self else { return }
                 
-            case .success(let result):
-                guard let data = result?.data else {
-                    return
-                }
-                
-                UserDefaults.standard.setValue(result?.token, forKey: Constants.AccessTokenKey)
-                UserDefaults.standard.setValue(data.id, forKey: Constants.salonIdKey)
-                UserDefaults.standard.setValue(data.nameAr, forKey: Constants.salonNameArKey)
-                UserDefaults.standard.setValue(data.nameEn, forKey: Constants.salonNameEnKey)
-                
-                DispatchQueue.main.asyncAfter(deadline: .now() + 1) {
-
-                    guard let homeView = strongSelf.storyboard?.instantiateViewController(identifier: Constants.Identifiers.tabBarController) as? TabBarController else {
+                ProgressHUD.dismiss()
+                switch result {
+                    
+                case .success(let result):
+                    guard let data = result?.data else {
                         return
                     }
+                    
+                    UserDefaults.standard.setValue(result?.token, forKey: Constants.AccessTokenKey)
+                    UserDefaults.standard.setValue(data.id, forKey: Constants.salonIdKey)
+                    UserDefaults.standard.setValue(data.nameAr, forKey: Constants.salonNameArKey)
+                    UserDefaults.standard.setValue(data.nameEn, forKey: Constants.salonNameEnKey)
+                    
+                    DispatchQueue.main.asyncAfter(deadline: .now() + 1) {
 
-                    strongSelf.navigationController?.pushViewController(homeView, animated: true)
-                }
-                
-                
-            case .failure(let error):
-                DispatchQueue.main.async {
-                    ProgressHUD.showError("\(error.userInfo[NSLocalizedDescriptionKey] ?? ErrorMessage.genericError)")
+                        guard let homeView = strongSelf.storyboard?.instantiateViewController(identifier: Constants.Identifiers.tabBarController) as? TabBarController else {
+                            return
+                        }
+
+                        strongSelf.navigationController?.pushViewController(homeView, animated: true)
+                    }
+                    
+                    
+                case .failure(let error):
+                    DispatchQueue.main.async {
+                        ProgressHUD.showError("\(error.userInfo[NSLocalizedDescriptionKey] ?? ErrorMessage.genericError)")
+                    }
                 }
             }
         }
