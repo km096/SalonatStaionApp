@@ -29,7 +29,7 @@ class LoginVC: UIViewController {
         
         enterPhoneNumLabel.initLabel(title: "Please, Enter your phone number to login:", titleColor: .black, backgroundColor: .clear, aliggment: .natural, font: .semiBold, fontSize: 20)
         
-        nextButton.initButton(title: "Next", titleColor: .white, backgroundColor: UIColor.buttonColor, radius: 25, font: .regular, fontSize: 26)
+        nextButton.initButton(title: "Next", titleColor: .white, backgroundColor: Constants.Colors.pinkColor, radius: 25, font: .regular, fontSize: 26)
     }
     
     //MARK: - IBActions

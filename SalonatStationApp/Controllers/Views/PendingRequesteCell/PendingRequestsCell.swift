@@ -38,13 +38,13 @@ class PendingRequestsCell: UICollectionViewCell {
         customerNameLabel.initLabel(title: "\(model.userName ?? "name")", titleColor: .black, backgroundColor: .clear, aliggment: .left, font: .regular, fontSize: 16)
         phoneNumbaerLabel.initLabel(title: "\(model.userPhone ?? "number")", titleColor: .black, backgroundColor: .clear, aliggment: .left, font: .regular, fontSize: 16)
         numOfCustomersLabel.initLabel(title: "\(model.personNumber ?? 0)", titleColor: .black, backgroundColor: .clear, aliggment: .left, font: .regular, fontSize: 16)
-        backview.setBorderWithSahdow(cornerRadius: 5, borderWidth: 1, borderColor: Constants.Colors.pinkColor.cgColor)
+        backview.setBorderWithroundCorner(cornerRadius: 5, borderWidth: 1, borderColor: Constants.Colors.pinkColor.cgColor)
         backview.setShadow(shadowRadius: 5, opacity: 0.5)
         
-        acceptView.setBorderWithSahdow(cornerRadius: 5, borderWidth: 1, borderColor: Constants.Colors.pinkColor.cgColor)
+        acceptView.setBorderWithroundCorner(cornerRadius: 5, borderWidth: 1, borderColor: Constants.Colors.pinkColor.cgColor)
         acceptView.setShadow(shadowRadius: 5, opacity: 0.5)
         
-        rejectView.setBorderWithSahdow(cornerRadius: 5, borderWidth: 1, borderColor: Constants.Colors.pinkColor.cgColor)
+        rejectView.setBorderWithroundCorner(cornerRadius: 5, borderWidth: 1, borderColor: Constants.Colors.pinkColor.cgColor)
         rejectView.setShadow(shadowRadius: 5, opacity: 0.5)
     
     }

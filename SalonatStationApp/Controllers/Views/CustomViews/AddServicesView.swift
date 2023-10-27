@@ -34,7 +34,7 @@ class AddServicesView: UIView {
     func setupAddServiceView() {
         addServicesToStartLabel.initLabel(title: "Please Add services to start you \n journey...", titleColor: .black, backgroundColor: .clear, aliggment: .center, font: .regular, fontSize: 20)
         
-        addServiceButton.initButton(title: "Add Service", titleColor: .white, backgroundColor: UIColor.buttonColor, radius: 25, font: .regular, fontSize: 16)
+        addServiceButton.initButton(title: "Add Service", titleColor: .white, backgroundColor: Constants.Colors.pinkColor, radius: 25, font: .regular, fontSize: 16)
     }
     
     

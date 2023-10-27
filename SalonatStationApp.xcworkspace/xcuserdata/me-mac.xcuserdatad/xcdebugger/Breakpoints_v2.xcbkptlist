@@ -228,5 +228,53 @@
             </Locations>
          </BreakpointContent>
       </BreakpointProxy>
+      <BreakpointProxy
+         BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
+         <BreakpointContent
+            uuid = "5E6217FC-1F97-477D-A050-5F99009D98B3"
+            shouldBeEnabled = "No"
+            ignoreCount = "0"
+            continueAfterRunningActions = "No"
+            filePath = "SalonatStationApp/Controllers/Services/SalonServiceVC.swift"
+            startingColumnNumber = "9223372036854775807"
+            endingColumnNumber = "9223372036854775807"
+            startingLineNumber = "150"
+            endingLineNumber = "150"
+            landmarkName = "tableView(_:willDisplay:forRowAt:)"
+            landmarkType = "7">
+            <Locations>
+               <Location
+                  uuid = "5E6217FC-1F97-477D-A050-5F99009D98B3 - 63578db0899824a5"
+                  shouldBeEnabled = "Yes"
+                  ignoreCount = "0"
+                  continueAfterRunningActions = "No"
+                  symbolName = "SalonatStationApp.SalonServiceVC.tableView(_: __C.UITableView, willDisplay: __C.UITableViewCell, forRowAt: Foundation.IndexPath) -&gt; ()"
+                  moduleName = "SalonatStationApp"
+                  usesParentBreakpointCondition = "Yes"
+                  urlString = "file:///Users/me-mac/Desktop/IOSApps/SalonatStationApp/SalonatStationApp/Controllers/Services/SalonServiceVC.swift"
+                  startingColumnNumber = "9223372036854775807"
+                  endingColumnNumber = "9223372036854775807"
+                  startingLineNumber = "150"
+                  endingLineNumber = "150"
+                  offsetFromSymbolStart = "1534">
+               </Location>
+               <Location
+                  uuid = "5E6217FC-1F97-477D-A050-5F99009D98B3 - 63578db0899824a5"
+                  shouldBeEnabled = "Yes"
+                  ignoreCount = "0"
+                  continueAfterRunningActions = "No"
+                  symbolName = "SalonatStationApp.SalonServiceVC.tableView(_: __C.UITableView, willDisplay: __C.UITableViewCell, forRowAt: Foundation.IndexPath) -&gt; ()"
+                  moduleName = "SalonatStationApp"
+                  usesParentBreakpointCondition = "Yes"
+                  urlString = "file:///Users/me-mac/Desktop/IOSApps/SalonatStationApp/SalonatStationApp/Controllers/Services/SalonServiceVC.swift"
+                  startingColumnNumber = "9223372036854775807"
+                  endingColumnNumber = "9223372036854775807"
+                  startingLineNumber = "150"
+                  endingLineNumber = "150"
+                  offsetFromSymbolStart = "1007">
+               </Location>
+            </Locations>
+         </BreakpointContent>
+      </BreakpointProxy>
    </Breakpoints>
 </Bucket>

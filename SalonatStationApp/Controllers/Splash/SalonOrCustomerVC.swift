@@ -49,7 +49,7 @@ class SalonOrCustomerVC: UIViewController {
         salonButton.addTarget(self, action: #selector(goToSalon), for: .touchUpInside)
         customerButton.addTarget(self, action: #selector(goToCustomer), for: .touchUpInside)
         
-        getStartedButton.initButton(title: "Get Started", titleColor: .white, backgroundColor: UIColor.buttonColor, radius: 25, font: .regular, fontSize: 16)
+        getStartedButton.initButton(title: "Get Started", titleColor: .white, backgroundColor: Constants.Colors.pinkColor, radius: 25, font: .regular, fontSize: 16)
     }
     
     @objc func goToSalon(){

@@ -7,13 +7,7 @@
 
 import Foundation
 
-
-// MARK: - GeneralFormatModel
-struct GeneralFormatModel: Codable {
-    let data,message, errors: String?
-    let status: Bool?
-}
-
+//MARK: - ServiceModel
 struct ServiceModel {
     var price: String?
     var numOfPersons: String?
@@ -21,11 +15,13 @@ struct ServiceModel {
     var fromDate: String?
     var toDate: String?
     
-    init(price: String? = "", numOfPersons: String? = "", offerPrice: String? = "", fromDate: String? = "", toDate: String? = "") {
+    init(price: String? = nil, numOfPersons: String? = nil, offerPrice: String? = nil, fromDate: String? = nil, toDate: String? = nil) {
         self.price = price
         self.numOfPersons = numOfPersons
         self.offerPrice = offerPrice
         self.fromDate = fromDate
         self.toDate = toDate
     }
+    
 }
+

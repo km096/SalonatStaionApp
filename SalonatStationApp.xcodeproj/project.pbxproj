@@ -35,6 +35,7 @@
 		F22733562AE48008004CC897 /* SalonServiceModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = F22733552AE48008004CC897 /* SalonServiceModel.swift */; };
 		F238491B2AE6EBD200B305C2 /* AddNewServiceVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = F238491A2AE6EBD200B305C2 /* AddNewServiceVC.swift */; };
 		F238491D2AE6EF8B00B305C2 /* SalonServiceVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = F238491C2AE6EF8B00B305C2 /* SalonServiceVC.swift */; };
+		F245E0382AEC7C9B00004500 /* GeneralFormatModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = F245E0372AEC7C9B00004500 /* GeneralFormatModel.swift */; };
 		F25EC0BF2AE9B358000DF76C /* AddServiceTableViewExt.swift in Sources */ = {isa = PBXBuildFile; fileRef = F25EC0BE2AE9B358000DF76C /* AddServiceTableViewExt.swift */; };
 		F25EC0C12AE9B392000DF76C /* PickerViewExt.swift in Sources */ = {isa = PBXBuildFile; fileRef = F25EC0C02AE9B392000DF76C /* PickerViewExt.swift */; };
 		F26010F22AE1820400261555 /* TabBarController.swift in Sources */ = {isa = PBXBuildFile; fileRef = F26010F12AE1820400261555 /* TabBarController.swift */; };
@@ -58,7 +59,6 @@
 		F2C7BA6C2AE0291C001DF3A4 /* VerifyUserModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = F2C7BA6B2AE0291C001DF3A4 /* VerifyUserModel.swift */; };
 		F2C7BA6E2AE05145001DF3A4 /* Models.swift in Sources */ = {isa = PBXBuildFile; fileRef = F2C7BA6D2AE05145001DF3A4 /* Models.swift */; };
 		F2D06CC62ADEC38300E2DD5B /* SalonAPI.swift in Sources */ = {isa = PBXBuildFile; fileRef = F2D06CC52ADEC38300E2DD5B /* SalonAPI.swift */; };
-		F2D06CC82ADEC51600E2DD5B /* SalonResponse.swift in Sources */ = {isa = PBXBuildFile; fileRef = F2D06CC72ADEC51600E2DD5B /* SalonResponse.swift */; };
 		F2D06CCA2ADEDF9000E2DD5B /* VerifacationCodeVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = F2D06CC92ADEDF9000E2DD5B /* VerifacationCodeVC.swift */; };
 /* End PBXBuildFile section */
 
@@ -95,6 +95,7 @@
 		F22733552AE48008004CC897 /* SalonServiceModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SalonServiceModel.swift; sourceTree = "<group>"; };
 		F238491A2AE6EBD200B305C2 /* AddNewServiceVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AddNewServiceVC.swift; sourceTree = "<group>"; };
 		F238491C2AE6EF8B00B305C2 /* SalonServiceVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SalonServiceVC.swift; sourceTree = "<group>"; };
+		F245E0372AEC7C9B00004500 /* GeneralFormatModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GeneralFormatModel.swift; sourceTree = "<group>"; };
 		F25EC0BE2AE9B358000DF76C /* AddServiceTableViewExt.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AddServiceTableViewExt.swift; sourceTree = "<group>"; };
 		F25EC0C02AE9B392000DF76C /* PickerViewExt.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PickerViewExt.swift; sourceTree = "<group>"; };
 		F26010F12AE1820400261555 /* TabBarController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TabBarController.swift; sourceTree = "<group>"; };
@@ -118,7 +119,6 @@
 		F2C7BA6B2AE0291C001DF3A4 /* VerifyUserModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = VerifyUserModel.swift; sourceTree = "<group>"; };
 		F2C7BA6D2AE05145001DF3A4 /* Models.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Models.swift; sourceTree = "<group>"; };
 		F2D06CC52ADEC38300E2DD5B /* SalonAPI.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SalonAPI.swift; sourceTree = "<group>"; };
-		F2D06CC72ADEC51600E2DD5B /* SalonResponse.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SalonResponse.swift; sourceTree = "<group>"; };
 		F2D06CC92ADEDF9000E2DD5B /* VerifacationCodeVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = VerifacationCodeVC.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
@@ -174,8 +174,8 @@
 			children = (
 				F2A2F78E2ADDEC730039B9AB /* Helper */,
 				F2A2F78B2ADDDC670039B9AB /* Model */,
-				F2A2F7862ADDB83D0039B9AB /* AuthHandlingApis */,
-				F2A2F77F2ADD89E80039B9AB /* Networking */,
+				F2A2F7862ADDB83D0039B9AB /* SalonNetworking */,
+				F2A2F77F2ADD89E80039B9AB /* BaseNetworking */,
 				F26010F02AE1819800261555 /* Controllers */,
 				F209EED62ADC7A7C00528186 /* Main.storyboard */,
 				F209EED02ADC7A7C00528186 /* AppDelegate.swift */,
@@ -221,6 +221,19 @@
 			path = ServicesCell;
 			sourceTree = "<group>";
 		};
+		F245E0362AEC55E700004500 /* ApiModel */ = {
+			isa = PBXGroup;
+			children = (
+				F245E0372AEC7C9B00004500 /* GeneralFormatModel.swift */,
+				F2C7BA6B2AE0291C001DF3A4 /* VerifyUserModel.swift */,
+				F22733462AE43841004CC897 /* SalonOrderModel.swift */,
+				F22733552AE48008004CC897 /* SalonServiceModel.swift */,
+				F2BDFCF92AE7D72000DF9BED /* GetGategoriesModel.swift */,
+				F2BDFD092AE861B200DF9BED /* GetServicesModel.swift */,
+			);
+			path = ApiModel;
+			sourceTree = "<group>";
+		};
 		F25EC0C22AE9B3E0000DF76C /* AddNewService */ = {
 			isa = PBXGroup;
 			children = (
@@ -234,7 +247,7 @@
 		F26010F02AE1819800261555 /* Controllers */ = {
 			isa = PBXGroup;
 			children = (
-				F2BDFD052AE846FA00DF9BED /* OpeningScreens */,
+				F2BDFD052AE846FA00DF9BED /* Splash */,
 				F2BDFD042AE8469900DF9BED /* Home */,
 				F2BDFD062AE8474A00DF9BED /* Services */,
 				F2BDFD082AE8483B00DF9BED /* TabBar */,
@@ -254,7 +267,7 @@
 			path = Views;
 			sourceTree = "<group>";
 		};
-		F2A2F77F2ADD89E80039B9AB /* Networking */ = {
+		F2A2F77F2ADD89E80039B9AB /* BaseNetworking */ = {
 			isa = PBXGroup;
 			children = (
 				F2A2F7802ADD8A240039B9AB /* TargetType.swift */,
@@ -262,22 +275,17 @@
 				F2A2F7842ADD93380039B9AB /* ErrorMessage.swift */,
 				F2A2F7892ADDDBEA0039B9AB /* NetworkHelper.swift */,
 			);
-			path = Networking;
+			path = BaseNetworking;
 			sourceTree = "<group>";
 		};
-		F2A2F7862ADDB83D0039B9AB /* AuthHandlingApis */ = {
+		F2A2F7862ADDB83D0039B9AB /* SalonNetworking */ = {
 			isa = PBXGroup;
 			children = (
 				F2A2F7872ADDB8C40039B9AB /* AuthSalonApiNetwork.swift */,
 				F2D06CC52ADEC38300E2DD5B /* SalonAPI.swift */,
-				F2D06CC72ADEC51600E2DD5B /* SalonResponse.swift */,
-				F2C7BA6B2AE0291C001DF3A4 /* VerifyUserModel.swift */,
-				F22733462AE43841004CC897 /* SalonOrderModel.swift */,
-				F22733552AE48008004CC897 /* SalonServiceModel.swift */,
-				F2BDFCF92AE7D72000DF9BED /* GetGategoriesModel.swift */,
-				F2BDFD092AE861B200DF9BED /* GetServicesModel.swift */,
+				F245E0362AEC55E700004500 /* ApiModel */,
 			);
-			path = AuthHandlingApis;
+			path = SalonNetworking;
 			sourceTree = "<group>";
 		};
 		F2A2F78B2ADDDC670039B9AB /* Model */ = {
@@ -319,14 +327,14 @@
 			path = Home;
 			sourceTree = "<group>";
 		};
-		F2BDFD052AE846FA00DF9BED /* OpeningScreens */ = {
+		F2BDFD052AE846FA00DF9BED /* Splash */ = {
 			isa = PBXGroup;
 			children = (
 				F209EED42ADC7A7C00528186 /* SalonOrCustomerVC.swift */,
 				F2A2F77B2ADD509C0039B9AB /* LoginVC.swift */,
 				F2D06CC92ADEDF9000E2DD5B /* VerifacationCodeVC.swift */,
 			);
-			path = OpeningScreens;
+			path = Splash;
 			sourceTree = "<group>";
 		};
 		F2BDFD062AE8474A00DF9BED /* Services */ = {
@@ -492,6 +500,7 @@
 				F2D06CCA2ADEDF9000E2DD5B /* VerifacationCodeVC.swift in Sources */,
 				F22733472AE43841004CC897 /* SalonOrderModel.swift in Sources */,
 				F209EED12ADC7A7C00528186 /* AppDelegate.swift in Sources */,
+				F245E0382AEC7C9B00004500 /* GeneralFormatModel.swift in Sources */,
 				F25EC0BF2AE9B358000DF76C /* AddServiceTableViewExt.swift in Sources */,
 				F22733562AE48008004CC897 /* SalonServiceModel.swift in Sources */,
 				F209EED32ADC7A7C00528186 /* SceneDelegate.swift in Sources */,
@@ -514,7 +523,6 @@
 				F2A2F77E2ADD53B50039B9AB /* Constants.swift in Sources */,
 				F28F0E7A2AE1E2D70046168D /* HomeVC.swift in Sources */,
 				F25EC0C12AE9B392000DF76C /* PickerViewExt.swift in Sources */,
-				F2D06CC82ADEC51600E2DD5B /* SalonResponse.swift in Sources */,
 				F26010F42AE1850000261555 /* CustomTabBar.swift in Sources */,
 				F275F9492AE2FED8003BDD2F /* AddServicesView.swift in Sources */,
 				F22733532AE4733A004CC897 /* ServicesCell.swift in Sources */,

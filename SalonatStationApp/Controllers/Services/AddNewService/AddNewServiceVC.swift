@@ -23,7 +23,7 @@ class AddNewServiceVC: UIViewController {
     var categoriesList = [GetCategoriesModelData]()
     var servicesList = [GetServicesDataModel]()
     var services = Array(repeating: ServiceModel(), count: 4)
-    var serviceDic = [[String: Any]]()
+    var serviceDic = [[String: Any?]]()
     
     let id = UserDefaults.standard.integer(forKey: Constants.salonIdKey)
     var serviceId: Int?
@@ -36,7 +36,7 @@ class AddNewServiceVC: UIViewController {
     let dateFormatter = DateFormatter()
     
     var categoryCurrentIdex = 0
-    var serviceCurrentIdex: Int?
+    var serviceCurrentIdex = 0
     
     let typeId = [4,3,1,2]
     var addServiceCheckedArray = [0, 0, 0, 0]
@@ -57,7 +57,7 @@ class AddNewServiceVC: UIViewController {
         getCategories()
         if let tabBar = tabBarController as? TabBarController {
             tabBar.tabBar.isHidden = true
-        }        
+        } 
     }
     
     //MARK: - Setup
@@ -67,12 +67,8 @@ class AddNewServiceVC: UIViewController {
         
         saveButton.initButton(title: "Save", titleColor: .white, backgroundColor: Constants.Colors.pinkColor, radius: 25, font: .regular, fontSize: 16, target: self, action: #selector(validation))
         
-        let toolbar = UIToolbar()
-        toolbar.sizeToFit()
-        let doneButton = UIBarButtonItem(title: "Done", style: .done, target: self, action: #selector(doneAction))
-        toolbar.setItems([doneButton], animated: true)
-        categoryTextField.inputAccessoryView = toolbar
-        serviceTextField.inputAccessoryView = toolbar
+        categoryTextField.inputAccessoryView = setCategoryToolBar()
+        serviceTextField.inputAccessoryView = setServiceToolBar()
     }
         
     //MARK: - ConfigureViews
@@ -92,14 +88,32 @@ class AddNewServiceVC: UIViewController {
         categoryTextField.inputView = categoryPicker
         serviceTextField.inputView = servicePicker
     }
+    
+    func setCategoryToolBar() -> UIToolbar {
+        let toolbar = UIToolbar()
+        toolbar.sizeToFit()
+        let doneButton = UIBarButtonItem(title: "Done", style: .plain, target: self, action: #selector(doneCategoryAction))
+        toolbar.setItems([doneButton], animated: true)
+        return toolbar
+    }
+    
+    func setServiceToolBar() -> UIToolbar {
+        let toolbar = UIToolbar()
+        toolbar.sizeToFit()
+        let doneButton = UIBarButtonItem(title: "Done", style: .plain, target: self, action: #selector(doneServiceAction))
+        toolbar.setItems([doneButton], animated: true)
+        return toolbar
+    }
         
-    @objc func doneAction() {
+    @objc func doneCategoryAction() {
         categoryTextField.text = categoriesList[categoryCurrentIdex].name
         getService(categoryId: categoriesList[categoryCurrentIdex].id ?? 0)
-//        if serviceCurrentIdex != nil {
-//            serviceTextField.text = servicesList[serviceCurrentIdex ?? 0].name
-//        }
-//        print("service name: \(serviceTextField.text ?? "")")
+        view.endEditing(true)
+    }
+    
+    @objc func doneServiceAction() {
+        serviceTextField.text = servicesList[serviceCurrentIdex].name
+        serviceId = servicesList[serviceCurrentIdex].id ?? 0
         view.endEditing(true)
     }
     
@@ -111,36 +125,62 @@ class AddNewServiceVC: UIViewController {
         
         if categoryText.isEmpty {
             ProgressHUD.showError("Please choose category")
-        } else if serviceText.isEmpty {
+            return
+        }
+        
+        if serviceText.isEmpty {
             ProgressHUD.showError("Please choose service")
-        } else if addServiceCheckedArray == [0,0,0,0] {
+            return
+        }
+        
+        if addServiceCheckedArray == [0,0,0,0] {
             ProgressHUD.showError("Please at least add one service details")
-        } else {
-            for index in 0 ..< addServiceCheckedArray.count {
-                if addServiceCheckedArray[index] == 1 {
-                    if services[index].price == "" {
-                        ProgressHUD.showError("Please enter main price")
-                    } else if services[index].numOfPersons == "" {
-                        ProgressHUD.showError("Please enter no of persons")
-                    } else if addOfferCheckedArray[index] == 0 {
-                        appendToServiceDic(index: index)
-                    } else if addOfferCheckedArray[index] == 1 {
-                        if services[index].offerPrice == "" {
-                            ProgressHUD.showError("Please enter offer price")
-                        } else if services[index].fromDate == "" {
-                            ProgressHUD.showError("Please enter offer from date")
-                        } else if services[index].toDate == "" {
-                            ProgressHUD.showError("Please enter offer to date")
-                        } else {
-                            appendToServiceDic(index: index)
-                        }
-                    }
-                    
-                }
+            return
+        }
+        
+        for index in 0 ..< addServiceCheckedArray.count {
+            if addServiceCheckedArray[index] == 0 {
+                continue
             }
             
-            addService(dic: setAddServiceDic())
+            if services[index].price.isNilOrEmpty() {
+                ProgressHUD.showError("Please enter main price")
+                return
+            }
+            
+            if services[index].numOfPersons.isNilOrEmpty() {
+                ProgressHUD.showError("Please enter no of persons")
+                return
+            }
+            
+            if addOfferCheckedArray[index] == 0 {
+                appendToServiceDic(index: index)
+                continue
+            }
+            
+            if services[index].offerPrice.isNilOrEmpty() {
+                ProgressHUD.showError("Please enter offer price")
+                return
+            }
+            
+            if Int(services[index].offerPrice ?? "0") ?? 0 > Int(services[index].price ?? "0") ?? 0 {
+                ProgressHUD.showError("Please enter offer price less than main price")
+                return
+            }
+            
+            if services[index].fromDate.isNilOrEmpty() {
+                ProgressHUD.showError("Please enter offer from date")
+                return
+            }
+            
+            if services[index].toDate.isNilOrEmpty() {
+                ProgressHUD.showError("Please enter offer to date")
+                return
+            }
+                        
+            appendToServiceDic(index: index)
         }
+        addService(dic: setAddServiceDic())
     }
     
         //MARK: - Helpers
@@ -149,10 +189,11 @@ class AddNewServiceVC: UIViewController {
         fromDatePicker.datePickerMode = .dateAndTime
         toDatePicker.datePickerMode = .dateAndTime
         dateFormatter.locale = Locale(identifier: "en_US")
-        dateFormatter.dateFormat = "yyyy-MM-dd hh:mm a"
-        
+        dateFormatter.dateFormat = Constants.dateFormat
+
         fromDatePicker.minimumDate = today
-        toDatePicker.minimumDate = Calendar.current.date(byAdding: .day, value: 1, to: fromDatePicker.date)
+        fromDatePicker.maximumDate = Calendar.current.date(bySetting: .day, value: 0, of: toDatePicker.minimumDate ?? Date())
+        toDatePicker.minimumDate = Calendar.current.date(byAdding: .day, value: 0, to: fromDatePicker.maximumDate ?? Date())
         
         if #available(iOS 13.4, *) {
             fromDatePicker.preferredDatePickerStyle = .wheels
@@ -161,13 +202,21 @@ class AddNewServiceVC: UIViewController {
     }
     
     private func appendToServiceDic(index: Int) {
-        serviceDic.append(["type_id":typeId[index],
-                           "price":convertToEnglish(inputStr: services[index].price ?? ""),
-                           "addition":additionsCheckedArray[index],
-                           "no_person":convertToEnglish(inputStr: services[index].numOfPersons ?? ""),
-                           "offer_price": convertToEnglish(inputStr: services[index].offerPrice ?? ""),
-                           "from": convertTimeFrom24To12(time24: services[index].fromDate ?? ""),
-                           "to": convertTimeFrom24To12(time24: services[index].toDate ?? "")])
+        if addOfferCheckedArray[index] == 0 {
+            serviceDic.append(["type_id":typeId[index],
+                               "price":convertToEnglish(inputStr: services[index].price ?? ""),
+                               "addition":additionsCheckedArray[index],
+                               "no_person":convertToEnglish(inputStr: services[index].numOfPersons ?? "")])
+        } else {
+            serviceDic.append(["type_id":typeId[index],
+                               "price":convertToEnglish(inputStr: services[index].price ?? ""),
+                               "addition":additionsCheckedArray[index],
+                               "no_person":convertToEnglish(inputStr: services[index].numOfPersons ?? ""),
+                               "offer_price": convertToEnglish(inputStr: services[index].offerPrice ?? ""),
+                               "from": services[index].fromDate ?? "",
+                               "to": services[index].toDate ?? ""])
+        }
+        
     }
     
     private func setAddServiceDic() -> [String: Any]{
@@ -219,7 +268,7 @@ class AddNewServiceVC: UIViewController {
                     let ids = strongSelf.servicesList.map{$0.id ?? 0}
                     let rowIndex = ids.firstIndex(where: {$0 == strongSelf.serviceId})
                     strongSelf.servicePicker.selectRow(rowIndex ?? 0, inComponent: 0, animated: false)
-                    strongSelf.serviceTextField.text =  strongSelf.servicesList[rowIndex ?? 0].name ?? ""
+
                     strongSelf.serviceTableView.reloadData()
                 }
             case .failure(let error):
@@ -241,14 +290,10 @@ class AddNewServiceVC: UIViewController {
             case .success(let result):
                 guard let message = result?.message else { return }
                 ProgressHUD.showSuccess(message)
-                print("message: \(message)")
                 strongSelf.navigationController?.popViewController(animated: true)
                 
             case .failure(let error):
-                DispatchQueue.main.async {
-                    ProgressHUD.showError("\(error.userInfo[NSLocalizedDescriptionKey] ?? "")")
-                    print("error: \(error.localizedDescription)")
-                }
+                ProgressHUD.showError("\(error.userInfo[NSLocalizedDescriptionKey] ?? "")")
             }
         }
     }
@@ -258,10 +303,10 @@ class AddNewServiceVC: UIViewController {
     //MARK: - TextFieldsDelegates
 extension AddNewServiceVC: UITextFieldDelegate {
     
-    func textFieldDidEndEditing(_ textField: UITextField) {
+    func textFieldShouldEndEditing(_ textField: UITextField) -> Bool {
         var filedTag = textField.tag % 100
         let cellIndex = textField.tag / 100
-        
+
             if filedTag == 1 {
                 services[cellIndex].price = textField.text ?? ""
             } else if filedTag == 2 {
@@ -270,18 +315,16 @@ extension AddNewServiceVC: UITextFieldDelegate {
                 services[cellIndex].offerPrice = textField.text ?? ""
             } else if filedTag == 4 {
                 let date = dateFormatter.string(from: fromDatePicker.date)
-                textField.text = date
+                textField.text = convertDateFormat(inputDateString: date)
                 services[cellIndex].fromDate = textField.text ?? ""
             } else if filedTag == 5 {
                 let date = dateFormatter.string(from: toDatePicker.date)
-                textField.text = date
+                textField.text = convertDateFormat(inputDateString: date)
                 services[cellIndex].toDate = textField.text ?? ""
             }
-        
-        
-        print("service price: \(services[cellIndex].price ?? ""), num of persons: \(services[cellIndex].numOfPersons ?? ""), offer price: \(services[cellIndex].offerPrice ?? ""), from date: \(services[cellIndex].fromDate ?? ""), to date: \(services[cellIndex].toDate ?? "")")
+        return true
 
-        }
-    
+    }
+
 }
 

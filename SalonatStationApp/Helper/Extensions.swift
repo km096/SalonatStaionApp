@@ -111,6 +111,25 @@ extension UIViewController {
         
         return time12 + period
     }
+    
+    func convertDateFormat(inputDateString: String) -> String {
+        let inputDateFormat = Constants.dateFormat
+        let outputDateFormat = "dd MMM yyyy, HH:mm"
+        var outputDateString = String()
+        
+        let inputDateFormatter = DateFormatter()
+        inputDateFormatter.dateFormat = inputDateFormat
+        
+        let outputDateFormatter = DateFormatter()
+        outputDateFormatter.dateFormat = outputDateFormat
+        
+        if let inputDate = inputDateFormatter.date(from: inputDateString) {
+            outputDateString = outputDateFormatter.string(from: inputDate)
+        }
+        
+    return outputDateString
+
+    }
 }
 
 //MARK: - UINavigationController
@@ -129,27 +148,24 @@ extension UINavigationController {
         navigationItem.backBarButtonItem = UIBarButtonItem(title: "", style: .plain, target: nil, action: nil)
     }
 }
-
-    //MARK: - UIView
+//MARK: - UIView
 extension UIView {
-    func setBorderWithSahdow(cornerRadius: CGFloat, borderWidth: CGFloat, borderColor: CGColor) {
+    func setBorderWithroundCorner(cornerRadius: CGFloat, borderWidth: CGFloat, borderColor: CGColor) {
         
         self.layer.borderWidth = borderWidth
         self.layer.borderColor = borderColor
 
         self.layer.masksToBounds = true
         self.layer.cornerRadius = cornerRadius
-        
-        
-        
+            
     }
     
     func setShadow(shadowRadius: CGFloat, opacity: Float) {
-        self.layer.shadowOffset = CGSize(width: 1, height: 1)
+        self.layer.shadowOffset = .zero
         self.layer.masksToBounds = false
         self.layer.shadowRadius = shadowRadius
         self.layer.shadowOpacity = opacity
-        self.layer.shadowColor = UIColor.black.cgColor
+        self.layer.shadowColor = UIColor.gray.cgColor
     }
     
     // Add borderWidth in Story Bord
@@ -248,8 +264,11 @@ extension UIImage {
         }
 }
 
-extension UIColor {
-    static var buttonColor = #colorLiteral(red: 0.9552590251, green: 0.4643781185, blue: 0.4304232001, alpha: 1)
+//MARK: - String
+extension String? {
+    func isNilOrEmpty() -> Bool {
+        return self == nil || ((self?.isEmpty) == true)
+    }
 }
 
 enum ChooseFont: String {

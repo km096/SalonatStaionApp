@@ -43,10 +43,7 @@ extension AddNewServiceVC: UIPickerViewDelegate, UIPickerViewDataSource {
         default:
             serviceCurrentIdex = row
             serviceTextField.text = servicesList[row].name
-            if servicesList.count != 0 {
-                serviceId = servicesList[row].id ?? 0
-                print("service id: \(serviceId ?? 00)")
-            }
+
         }
     }
     

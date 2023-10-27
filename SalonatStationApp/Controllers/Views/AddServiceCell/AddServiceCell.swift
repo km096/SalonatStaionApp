@@ -45,8 +45,7 @@ class AddServiceCell: UITableViewCell {
     func setupViews() {
         addOfferLabel.initLabel(title: "Add Offer", titleColor: .black, backgroundColor: .clear, aliggment: .left, font: .regular, fontSize: 14)
         additionsLabel.initLabel(title: "Additios", titleColor: .black, backgroundColor: .clear, aliggment: .left, font: .regular, fontSize: 14)
-//        deleteOfferButton.initButton(title: "Delete", titleColor: .red, backgroundColor: .clear, radius: 0, font: .light, fontSize: 12)
-        backView.setBorderWithSahdow(cornerRadius: 5, borderWidth: 1, borderColor: Constants.Colors.pinkColor.cgColor)
+        backView.setBorderWithroundCorner(cornerRadius: 5, borderWidth: 1, borderColor: Constants.Colors.pinkColor.cgColor)
         
     }
     

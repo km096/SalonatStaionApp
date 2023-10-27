@@ -11,16 +11,14 @@ import UIKit
 struct Constants {
     
     static let storyboardName = "Main"
+    static let dateFormat = "yyyy-MM-dd HH:mm:ss"
     
     struct Identifiers {
-        
         static let loginVC = "loginID"
         static let verifacationCodeVC = "VerifacationCodeID"
         static let tabBarController = "TabBarControllerID"
         static let salonServiceVC = "SalonServiceID"
-        static let addServiceVC = "addServiceID"
-        //SalonServiceID
-        
+        static let addServiceVC = "addServiceID"        
     }
     
     struct Colors {

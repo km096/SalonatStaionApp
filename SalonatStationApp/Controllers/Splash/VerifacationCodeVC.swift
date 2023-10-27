@@ -40,7 +40,7 @@ class VerifacationCodeVC: UIViewController {
         
         resendButton.addUnderline(title: "Resend?")
         
-        nextButton.initButton(title: "Next", titleColor: .white, backgroundColor: UIColor.buttonColor, radius: 25, font: .regular, fontSize: 26)
+        nextButton.initButton(title: "Next", titleColor: .white, backgroundColor: Constants.Colors.pinkColor, radius: 25, font: .regular, fontSize: 26)
         nextButton.isEnabled = false
         
     }

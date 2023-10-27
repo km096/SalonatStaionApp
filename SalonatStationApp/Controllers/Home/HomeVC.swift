@@ -36,6 +36,9 @@ class HomeVC: UIViewController {
         super.viewWillAppear(animated)
         getServiceList()
         getPendingRequests()
+        if let tabBar = tabBarController as? TabBarController {
+            tabBar.tabBar.isHidden = false
+        }
     }
    
     //MARK: - UpdateUI
@@ -51,7 +54,7 @@ class HomeVC: UIViewController {
         self.navigationController?.setNavigationBar(navigationItem: navigationItem, title: "Home", titleColor: .black, tintColor: .black, font: .light, fontSize: 30)
         self.navigationController?.navigationBar.backItem?.backButtonTitle = ""
         
-        newServiceView.setShadow(shadowRadius: 10, opacity: 0.3)
+        newServiceView.setShadow(shadowRadius: 5, opacity: 0.5)
         addNewServiceButton.initButton(title: "Add New Service", titleColor: .white, backgroundColor: Constants.Colors.pinkColor, radius: 25, font: .regular, fontSize: 16, target: self, action: #selector(goToAddServiceScreen))
     }
     
@@ -70,7 +73,6 @@ class HomeVC: UIViewController {
     //MARK: - APICalls
     func getServiceList() {
         let id = UserDefaults.standard.integer(forKey: Constants.salonIdKey)
-//        print("id: \(id)")
         ProgressHUD.show()
         SalonAPI.shared.salonService(id: id, skip: 0) { [weak self] result in
             guard let strongSelf = self else {
@@ -84,7 +86,6 @@ class HomeVC: UIViewController {
                 guard let data = result?.data else { return }
                 strongSelf.servicesList = data
                 strongSelf.servicesCount = data.count
-                print("count: \(data.count)")
                 DispatchQueue.main.async {
                     strongSelf.showAddServiceView()
                     strongSelf.servicesTableView.reloadData()

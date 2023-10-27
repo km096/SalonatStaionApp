@@ -427,6 +427,7 @@
                                         <subviews>
                                             <textField opaque="NO" contentMode="scaleToFill" horizontalHuggingPriority="248" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" placeholder="Category" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="xk0-td-UeO">
                                                 <rect key="frame" x="0.0" y="0.0" width="323" height="50"/>
+                                                <gestureRecognizers/>
                                                 <fontDescription key="fontDescription" type="system" pointSize="14"/>
                                                 <textInputTraits key="textInputTraits"/>
                                             </textField>
@@ -466,6 +467,7 @@
                                             </imageView>
                                         </subviews>
                                         <color key="backgroundColor" systemColor="systemBackgroundColor"/>
+                                        <gestureRecognizers/>
                                         <constraints>
                                             <constraint firstItem="c6A-Bl-8E4" firstAttribute="leading" secondItem="cUK-QI-f0C" secondAttribute="leading" id="5Z9-S0-Ef8"/>
                                             <constraint firstItem="c6A-Bl-8E4" firstAttribute="top" secondItem="cUK-QI-f0C" secondAttribute="top" id="8BL-lZ-8bQ"/>
