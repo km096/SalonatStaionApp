@@ -16,17 +16,17 @@
         <placeholder placeholderIdentifier="IBFilesOwner" id="-1" userLabel="File's Owner"/>
         <placeholder placeholderIdentifier="IBFirstResponder" id="-2" customClass="UIResponder"/>
         <collectionViewCell opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" id="gTV-IL-0wX" customClass="PendingRequestsCell" customModule="SalonatStationApp" customModuleProvider="target">
-            <rect key="frame" x="0.0" y="0.0" width="382" height="165"/>
+            <rect key="frame" x="0.0" y="0.0" width="382" height="188"/>
             <autoresizingMask key="autoresizingMask"/>
             <view key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center">
-                <rect key="frame" x="0.0" y="0.0" width="382" height="165"/>
+                <rect key="frame" x="0.0" y="0.0" width="382" height="188"/>
                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                 <subviews>
                     <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="JgX-D2-4WA">
                         <rect key="frame" x="0.0" y="0.0" width="382" height="175"/>
                         <subviews>
-                            <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" alignment="top" spacing="5" translatesAutoresizingMaskIntoConstraints="NO" id="ZlN-4e-48x">
-                                <rect key="frame" x="10" y="15" width="190.66666666666666" height="145"/>
+                            <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" distribution="fillEqually" alignment="top" spacing="5" translatesAutoresizingMaskIntoConstraints="NO" id="ZlN-4e-48x">
+                                <rect key="frame" x="10" y="15" width="201" height="145"/>
                                 <subviews>
                                     <stackView opaque="NO" contentMode="scaleToFill" spacing="10" translatesAutoresizingMaskIntoConstraints="NO" id="kn8-iJ-Qqc">
                                         <rect key="frame" x="0.0" y="0.0" width="106" height="25"/>
@@ -165,18 +165,21 @@
                                     </view>
                                 </subviews>
                                 <constraints>
+                                    <constraint firstAttribute="width" secondItem="Eih-3J-iXf" secondAttribute="height" multiplier="10:31" id="Nur-Jq-C7w"/>
                                     <constraint firstAttribute="width" constant="50" id="SnR-sz-3YM"/>
                                 </constraints>
                             </stackView>
                         </subviews>
                         <color key="backgroundColor" systemColor="systemBackgroundColor"/>
                         <constraints>
+                            <constraint firstItem="Eih-3J-iXf" firstAttribute="width" secondItem="JgX-D2-4WA" secondAttribute="height" multiplier="2:7" id="JTI-Vc-fXH"/>
                             <constraint firstItem="ZlN-4e-48x" firstAttribute="top" secondItem="JgX-D2-4WA" secondAttribute="top" constant="15" id="LOp-aD-T5l"/>
                             <constraint firstItem="Eih-3J-iXf" firstAttribute="top" secondItem="JgX-D2-4WA" secondAttribute="top" constant="10" id="O6A-Aa-NkT"/>
                             <constraint firstAttribute="bottom" secondItem="Eih-3J-iXf" secondAttribute="bottom" constant="10" id="SY2-ov-rUw"/>
                             <constraint firstAttribute="trailing" secondItem="Eih-3J-iXf" secondAttribute="trailing" constant="10" id="a8k-iR-ddF"/>
                             <constraint firstItem="ZlN-4e-48x" firstAttribute="leading" secondItem="JgX-D2-4WA" secondAttribute="leading" constant="10" id="deF-mX-uoQ"/>
                             <constraint firstAttribute="bottom" secondItem="ZlN-4e-48x" secondAttribute="bottom" constant="15" id="goI-uD-BBV"/>
+                            <constraint firstItem="ZlN-4e-48x" firstAttribute="width" secondItem="JgX-D2-4WA" secondAttribute="height" multiplier="201:175" id="wZg-dz-JwV"/>
                         </constraints>
                     </view>
                 </subviews>
@@ -187,7 +190,7 @@
                 <constraint firstItem="JgX-D2-4WA" firstAttribute="top" secondItem="gTV-IL-0wX" secondAttribute="top" id="JwE-rs-0Ev"/>
                 <constraint firstItem="JgX-D2-4WA" firstAttribute="leading" secondItem="gTV-IL-0wX" secondAttribute="leading" id="yvP-aS-m5d"/>
             </constraints>
-            <size key="customSize" width="382" height="165"/>
+            <size key="customSize" width="382" height="188"/>
             <connections>
                 <outlet property="acceptButton" destination="C4u-ii-pDB" id="bXB-JD-MG1"/>
                 <outlet property="acceptView" destination="3V0-Oc-KW8" id="KU5-1i-7M1"/>
@@ -200,7 +203,7 @@
                 <outlet property="rejectView" destination="vOX-0y-m6A" id="AJs-co-HPp"/>
                 <outlet property="serviceDateLabel" destination="3Rz-Xe-5i0" id="9b7-KE-5UZ"/>
             </connections>
-            <point key="canvasLocation" x="190.83969465648855" y="16.549295774647888"/>
+            <point key="canvasLocation" x="190.83969465648855" y="24.647887323943664"/>
         </collectionViewCell>
     </objects>
     <resources>
