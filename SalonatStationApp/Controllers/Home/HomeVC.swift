@@ -33,12 +33,15 @@ class HomeVC: UIViewController {
     }
     
     override func viewWillAppear(_ animated: Bool) {
-        super.viewWillAppear(animated)
-        getServiceList()
-        getPendingRequests()
+        super.viewWillAppear(animated)        
+        self.navigationController?.navigationBar.isHidden = false
         if let tabBar = tabBarController as? TabBarController {
             tabBar.tabBar.isHidden = false
         }
+        handleNavigationBar()
+        getServiceList()
+        getPendingRequests()
+
     }
    
     //MARK: - UpdateUI
@@ -56,6 +59,15 @@ class HomeVC: UIViewController {
         
         newServiceView.setShadow(shadowRadius: 5, opacity: 0.5)
         addNewServiceButton.initButton(title: "Add New Service", titleColor: .white, backgroundColor: Constants.Colors.pinkColor, radius: 25, font: .regular, fontSize: 16, target: self, action: #selector(goToAddServiceScreen))
+    }
+    
+    func handleNavigationBar() {
+        navigationItem.title = " Home"
+        self.navigationController?.navigationBar.titleTextAttributes = [.foregroundColor: UIColor.black]
+        self.navigationController?.navigationBar.backgroundColor = #colorLiteral(red: 0.979714334, green: 0.8133532405, blue: 0.8037056327, alpha: 1)
+        self.navigationController?.navigationBar.setBackgroundImage(UIImage(named: "defaultImage"), for: .default)
+        self.navigationController?.navigationBar.titleTextAttributes = [NSAttributedString.Key.font: UIFont(name: ChooseFont.regular.rawValue, size:20) ?? UIFont()]
+        navigationItem.backBarButtonItem = UIBarButtonItem(title: "", style: .plain, target: nil, action: nil)
     }
     
     
@@ -124,10 +136,7 @@ class HomeVC: UIViewController {
                     strongSelf.pendingRequestsCollectionView.reloadData()
                 }
             case .failure(let error):
-                DispatchQueue.main.async {
-                    ProgressHUD.showError("\(error.userInfo[NSLocalizedDescriptionKey] ?? "")")
-                }
-                
+                ProgressHUD.showError("\(error.userInfo[NSLocalizedDescriptionKey] ?? "")")
             }
         }
     }

@@ -244,9 +244,7 @@ class AddNewServiceVC: UIViewController {
                 strongSelf.categoriesList = data
                 
             case .failure(let error):
-                DispatchQueue.main.async {
-                    ProgressHUD.showError("\(error.userInfo[NSLocalizedDescriptionKey] ?? "")")
-                }
+                ProgressHUD.showError("\(error.userInfo[NSLocalizedDescriptionKey] ?? "")")
             }
         }
     }
@@ -272,9 +270,7 @@ class AddNewServiceVC: UIViewController {
                     strongSelf.serviceTableView.reloadData()
                 }
             case .failure(let error):
-                DispatchQueue.main.async {
-                    ProgressHUD.showError("\(error.userInfo[NSLocalizedDescriptionKey] ?? "")")
-                }
+                ProgressHUD.showError("\(error.userInfo[NSLocalizedDescriptionKey] ?? "")")
             }
         }
     }

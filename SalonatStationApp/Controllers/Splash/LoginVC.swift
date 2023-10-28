@@ -18,7 +18,7 @@ class LoginVC: UIViewController {
     //MARK: - ViewLifeCycle
     override func viewDidLoad() {
         super.viewDidLoad()
-        
+        initializeHideKeyboard()
         setupViews()
     }
     
@@ -26,7 +26,6 @@ class LoginVC: UIViewController {
     func setupViews() {
         self.navigationController?.setNavigationBar(navigationItem: navigationItem, title: "login", titleColor: .black, tintColor: .black, font: .light, fontSize: 30)
         self.navigationController?.navigationBar.backItem?.backButtonTitle = ""
-        
         enterPhoneNumLabel.initLabel(title: "Please, Enter your phone number to login:", titleColor: .black, backgroundColor: .clear, aliggment: .natural, font: .semiBold, fontSize: 20)
         
         nextButton.initButton(title: "Next", titleColor: .white, backgroundColor: Constants.Colors.pinkColor, radius: 25, font: .regular, fontSize: 26)
@@ -48,7 +47,7 @@ class LoginVC: UIViewController {
             guard let verifacationCodeVC = storyboard?.instantiateViewController(identifier: Constants.Identifiers.verifacationCodeVC) as? VerifacationCodeVC else {
                 return
             }
-            verifacationCodeVC.phoneNumber = phoneNumber
+            verifacationCodeVC.phoneNumber = convertToEnglish(inputStr: phoneNumber)
             navigationController?.pushViewController(verifacationCodeVC, animated: true)
         }
         

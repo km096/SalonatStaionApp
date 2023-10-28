@@ -6,15 +6,31 @@
 //
 
 import UIKit
+import MOLH
 
 @main
-class AppDelegate: UIResponder, UIApplicationDelegate {
+class AppDelegate: UIResponder, UIApplicationDelegate, MOLHResetable{
+    var window: UIWindow?
+    
+    func reset() {
+        let token = UserDefaults.standard.object(forKey: "\(Constants.AccessTokenKey)")
+        let storyboard  = UIStoryboard(name: "Main", bundle: nil)
+        if token != nil {
+            window?.rootViewController = storyboard.instantiateViewController(withIdentifier: Constants.Identifiers.tabBarController)
+        } else {
+            window?.rootViewController = storyboard.instantiateViewController(withIdentifier: "NavigationID")
+        }
+        
+    }
+    
 
 
 
     func application(_ application: UIApplication, didFinishLaunchingWithOptions launchOptions: [UIApplication.LaunchOptionsKey: Any]?) -> Bool {
         // Override point for customization after application launch.
 
+        MOLH.shared.activate(true)
+        reset()
         return true
     }
 

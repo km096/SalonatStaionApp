@@ -38,7 +38,7 @@ extension AddNewServiceVC: UITableViewDelegate, UITableViewDataSource {
         cell.fromDateTextField.inputView = fromDatePicker
         cell.toDateTextField.inputView = toDatePicker
         //Cell burrons tags
-        cell.addServiceButton.tag = indexPath.row + 10 //* 10 + 1
+        cell.addServiceButton.tag = indexPath.row + 10 
         cell.addOfferButton.tag = indexPath.row + 20
         cell.additionsButton.tag = indexPath.row + 30
         

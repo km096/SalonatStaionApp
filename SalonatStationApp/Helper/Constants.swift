@@ -17,6 +17,7 @@ struct Constants {
         static let loginVC = "loginID"
         static let verifacationCodeVC = "VerifacationCodeID"
         static let tabBarController = "TabBarControllerID"
+        static let homeVC = "HomeID"
         static let salonServiceVC = "SalonServiceID"
         static let addServiceVC = "addServiceID"        
     }

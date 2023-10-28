@@ -8,6 +8,7 @@
 import UIKit
 import ProgressHUD
 import SwiftyCodeView
+import MOLH
 
 class VerifacationCodeVC: UIViewController {
     
@@ -19,6 +20,7 @@ class VerifacationCodeVC: UIViewController {
     @IBOutlet weak var nextButton: UIButton!
     
     var phoneNumber: String?
+    var code = ""
     var token: String?
     var userId: Int?
     private var countdownTimer: Timer!
@@ -29,6 +31,7 @@ class VerifacationCodeVC: UIViewController {
         super.viewDidLoad()
         setupViews()
         resendCode()
+        initializeHideKeyboard()
         verifacationCodeView.delegate = self
     }
     
@@ -76,13 +79,11 @@ class VerifacationCodeVC: UIViewController {
         if let phoneNumber = phoneNumber {
             let parameters = ["phone": phoneNumber, "code": self.convertToEnglish(inputStr: code)]
             ProgressHUD.show()
-            
             SalonAPI.shared.verifyUser(parameters: parameters) { [weak self] result in
                 guard let strongSelf = self else { return }
                 
                 ProgressHUD.dismiss()
                 switch result {
-                    
                 case .success(let result):
                     guard let data = result?.data else {
                         return
@@ -93,20 +94,17 @@ class VerifacationCodeVC: UIViewController {
                     UserDefaults.standard.setValue(data.nameAr, forKey: Constants.salonNameArKey)
                     UserDefaults.standard.setValue(data.nameEn, forKey: Constants.salonNameEnKey)
                     
-                    DispatchQueue.main.asyncAfter(deadline: .now() + 1) {
-
-                        guard let homeView = strongSelf.storyboard?.instantiateViewController(identifier: Constants.Identifiers.tabBarController) as? TabBarController else {
-                            return
-                        }
-
-                        strongSelf.navigationController?.pushViewController(homeView, animated: true)
+                    DispatchQueue.main.asyncAfter(deadline: .now() + 2) {
+                        strongSelf.gotoNextScreen()
                     }
-                    
                     
                 case .failure(let error):
                     DispatchQueue.main.async {
-                        ProgressHUD.showError("\(error.userInfo[NSLocalizedDescriptionKey] ?? ErrorMessage.genericError)")
+                        strongSelf.verifacationCodeView.code = ""
+                        strongSelf.timerLabel.isHidden = true
+                        ProgressHUD.showError(error.localizedDescription)
                     }
+                    
                 }
             }
         }
@@ -114,39 +112,39 @@ class VerifacationCodeVC: UIViewController {
     }
     
     func resendCode() {
-        ProgressHUD.show()
-        
-        SalonAPI.shared.resendCode(phone: "0106778411") { [weak self] result in
-            guard let strongSelf = self else {
-                return
-            }
-            ProgressHUD.dismiss()
-            switch result {
-            case .success(let result):
-                guard let message = result?.message else {return}
-                DispatchQueue.main.async {
-                    strongSelf.verifacationCodeView.code = ""
-                    ProgressHUD.showSuccess(message)
-                    strongSelf.runTimer()
+        if let phoneNumber = phoneNumber {
+            ProgressHUD.show()
+            SalonAPI.shared.resendCode(phone: phoneNumber) { [weak self] result in
+                guard let strongSelf = self else {
+                    return
                 }
-            case .failure(let error):
-                DispatchQueue.main.async {
-                    ProgressHUD.showError("\(error.userInfo[NSLocalizedDescriptionKey] ?? ErrorMessage.genericError)")
+                ProgressHUD.dismiss()
+                switch result {
+                case .success(_):
+                    
+                    DispatchQueue.main.async {
+                        strongSelf.verifacationCodeView.code = ""
+                        strongSelf.runTimer()
+                    }
+                case .failure(let error):
+                    ProgressHUD.showError("\(error.localizedDescription )")
                 }
             }
         }
+        
 
     }
     
-    
-    
+    func gotoNextScreen() {
+        MOLH.reset()
+    }
     
 }
 
 //MARK: - SWiftyCodeDelegate
 extension VerifacationCodeVC: SwiftyCodeViewDelegate {
     func codeView(sender: SwiftyCodeView, didFinishInput code: String) -> Bool {
-        
+        self.code = code
         nextButton.isEnabled = checkCode()
         return checkCode()
     }
