@@ -106,14 +106,18 @@ class AddNewServiceVC: UIViewController {
     }
         
     @objc func doneCategoryAction() {
-        categoryTextField.text = categoriesList[categoryCurrentIdex].name
-        getService(categoryId: categoriesList[categoryCurrentIdex].id ?? 0)
+        if categoriesList.count != 0 {
+            categoryTextField.text = categoriesList[categoryCurrentIdex].name
+            getService(categoryId: categoriesList[categoryCurrentIdex].id ?? 0)
+        }
         view.endEditing(true)
     }
     
     @objc func doneServiceAction() {
-        serviceTextField.text = servicesList[serviceCurrentIdex].name
-        serviceId = servicesList[serviceCurrentIdex].id ?? 0
+        if servicesList.count != 0 {
+            serviceTextField.text = servicesList[serviceCurrentIdex].name
+            serviceId = servicesList[serviceCurrentIdex].id ?? 0
+        }
         view.endEditing(true)
     }
     
@@ -263,10 +267,6 @@ class AddNewServiceVC: UIViewController {
                 strongSelf.servicesCount = data.count
                 
                 DispatchQueue.main.async {
-                    let ids = strongSelf.servicesList.map{$0.id ?? 0}
-                    let rowIndex = ids.firstIndex(where: {$0 == strongSelf.serviceId})
-                    strongSelf.servicePicker.selectRow(rowIndex ?? 0, inComponent: 0, animated: false)
-
                     strongSelf.serviceTableView.reloadData()
                 }
             case .failure(let error):
@@ -283,13 +283,16 @@ class AddNewServiceVC: UIViewController {
             }
             ProgressHUD.dismiss()
             switch result {
-            case .success(let result):
-                guard let message = result?.message else { return }
-                ProgressHUD.showSuccess(message)
-                strongSelf.navigationController?.popViewController(animated: true)
+            case .success(_):
+                DispatchQueue.main.async {
+                    strongSelf.navigationController?.popViewController(animated: true)
+                }
                 
             case .failure(let error):
-                ProgressHUD.showError("\(error.userInfo[NSLocalizedDescriptionKey] ?? "")")
+                DispatchQueue.main.asyncAfter(deadline: .now() + 1) {
+                    ProgressHUD.showError("\(error.userInfo[NSLocalizedDescriptionKey] ?? "")")
+                }
+                
             }
         }
     }

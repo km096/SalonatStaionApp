@@ -29,7 +29,6 @@ class HomeVC: UIViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
         setupViews()
-
     }
     
     override func viewWillAppear(_ animated: Bool) {
@@ -37,8 +36,8 @@ class HomeVC: UIViewController {
         if let tabBar = tabBarController as? TabBarController {
             tabBar.tabBar.isHidden = false
         }
-        getServiceList()
         getPendingRequests()
+        getServiceList()
     }
    
     //MARK: - UpdateUI
@@ -71,15 +70,12 @@ class HomeVC: UIViewController {
     //MARK: - APICalls
     func getServiceList() {
         let id = UserDefaults.standard.integer(forKey: Constants.salonIdKey)
-        ProgressHUD.show()
         SalonAPI.shared.salonService(id: id, skip: 0) { [weak self] result in
             guard let strongSelf = self else {
                 return
             }
-            
-            ProgressHUD.dismiss()
+
             switch result {
-                
             case .success(let result):
                 guard let data = result?.data else { return }
                 strongSelf.servicesList = data
@@ -89,9 +85,11 @@ class HomeVC: UIViewController {
                     strongSelf.servicesTableView.reloadData()
                 }
             case .failure(let error):
-                DispatchQueue.main.async {
-                    ProgressHUD.showError("\(error.userInfo[NSLocalizedDescriptionKey] ?? "")")
+                DispatchQueue.main.asyncAfter(deadline: .now() + 2) {
+                    ProgressHUD.showError(error.localizedDescription)
+
                 }
+                  
             }
             
         }
@@ -122,7 +120,7 @@ class HomeVC: UIViewController {
                     strongSelf.pendingRequestsCollectionView.reloadData()
                 }
             case .failure(let error):
-                ProgressHUD.showError("\(error.userInfo[NSLocalizedDescriptionKey] ?? "")")
+                ProgressHUD.showError(error.localizedDescription)
             }
         }
     }

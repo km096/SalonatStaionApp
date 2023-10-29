@@ -99,7 +99,7 @@ class VerifacationCodeVC: UIViewController {
                     }
                     
                 case .failure(let error):
-                    DispatchQueue.main.async {
+                    DispatchQueue.main.asyncAfter(deadline: .now() + 1) {
                         strongSelf.verifacationCodeView.code = ""
                         strongSelf.timerLabel.isHidden = true
                         ProgressHUD.showError(error.localizedDescription)
@@ -127,6 +127,7 @@ class VerifacationCodeVC: UIViewController {
                         strongSelf.runTimer()
                     }
                 case .failure(let error):
+                    
                     ProgressHUD.showError("\(error.localizedDescription )")
                 }
             }
