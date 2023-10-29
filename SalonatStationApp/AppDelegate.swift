@@ -13,13 +13,15 @@ class AppDelegate: UIResponder, UIApplicationDelegate, MOLHResetable{
     var window: UIWindow?
     
     func reset() {
-        let token = UserDefaults.standard.object(forKey: "\(Constants.AccessTokenKey)")
-        let storyboard  = UIStoryboard(name: "Main", bundle: nil)
-        if token != nil {
-            window?.rootViewController = storyboard.instantiateViewController(withIdentifier: Constants.Identifiers.tabBarController)
-        } else {
+        guard let token = UserDefaults.standard.value(forKey: Constants.AccessTokenKey) else {
+            let storyboard  = UIStoryboard(name: "Main", bundle: nil)
             window?.rootViewController = storyboard.instantiateViewController(withIdentifier: "NavigationID")
+            return
         }
+        guard let homeView = UIStoryboard(name: "Home", bundle: nil).instantiateViewController(withIdentifier: Constants.Identifiers.tabBarController) as? TabBarController else {
+            return
+        }
+        self.window?.rootViewController = homeView
         
     }
     
@@ -30,7 +32,7 @@ class AppDelegate: UIResponder, UIApplicationDelegate, MOLHResetable{
         // Override point for customization after application launch.
 
         MOLH.shared.activate(true)
-        reset()
+//        reset()
         return true
     }
 

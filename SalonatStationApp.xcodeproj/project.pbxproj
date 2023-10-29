@@ -40,6 +40,7 @@
 		F25EC0C12AE9B392000DF76C /* PickerViewExt.swift in Sources */ = {isa = PBXBuildFile; fileRef = F25EC0C02AE9B392000DF76C /* PickerViewExt.swift */; };
 		F26010F22AE1820400261555 /* TabBarController.swift in Sources */ = {isa = PBXBuildFile; fileRef = F26010F12AE1820400261555 /* TabBarController.swift */; };
 		F26010F42AE1850000261555 /* CustomTabBar.swift in Sources */ = {isa = PBXBuildFile; fileRef = F26010F32AE1850000261555 /* CustomTabBar.swift */; };
+		F275F1882AEDD16300D94FA3 /* Home.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = F275F1872AEDD16300D94FA3 /* Home.storyboard */; };
 		F275F9492AE2FED8003BDD2F /* AddServicesView.swift in Sources */ = {isa = PBXBuildFile; fileRef = F275F9482AE2FED8003BDD2F /* AddServicesView.swift */; };
 		F275F94B2AE2FFC8003BDD2F /* AddServicesView.xib in Resources */ = {isa = PBXBuildFile; fileRef = F275F94A2AE2FFC8003BDD2F /* AddServicesView.xib */; };
 		F28F0E7A2AE1E2D70046168D /* HomeVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = F28F0E792AE1E2D70046168D /* HomeVC.swift */; };
@@ -100,6 +101,7 @@
 		F25EC0C02AE9B392000DF76C /* PickerViewExt.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PickerViewExt.swift; sourceTree = "<group>"; };
 		F26010F12AE1820400261555 /* TabBarController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TabBarController.swift; sourceTree = "<group>"; };
 		F26010F32AE1850000261555 /* CustomTabBar.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CustomTabBar.swift; sourceTree = "<group>"; };
+		F275F1872AEDD16300D94FA3 /* Home.storyboard */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; path = Home.storyboard; sourceTree = "<group>"; };
 		F275F9482AE2FED8003BDD2F /* AddServicesView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AddServicesView.swift; sourceTree = "<group>"; };
 		F275F94A2AE2FFC8003BDD2F /* AddServicesView.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = AddServicesView.xib; sourceTree = "<group>"; };
 		F28F0E792AE1E2D70046168D /* HomeVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HomeVC.swift; sourceTree = "<group>"; };
@@ -178,6 +180,7 @@
 				F2A2F77F2ADD89E80039B9AB /* BaseNetworking */,
 				F26010F02AE1819800261555 /* Controllers */,
 				F209EED62ADC7A7C00528186 /* Main.storyboard */,
+				F275F1872AEDD16300D94FA3 /* Home.storyboard */,
 				F209EED02ADC7A7C00528186 /* AppDelegate.swift */,
 				F209EED22ADC7A7C00528186 /* SceneDelegate.swift */,
 				F209EED92ADC7A7E00528186 /* Assets.xcassets */,
@@ -429,6 +432,7 @@
 				F22733542AE4733A004CC897 /* ServicesCell.xib in Resources */,
 				F209EEEE2ADC82F500528186 /* Cairo-Light.ttf in Resources */,
 				F209EEDD2ADC7A7E00528186 /* LaunchScreen.storyboard in Resources */,
+				F275F1882AEDD16300D94FA3 /* Home.storyboard in Resources */,
 				F209EEF22ADC82F500528186 /* Cairo-ExtraBold.ttf in Resources */,
 				F227334D2AE44033004CC897 /* EmptyPendingRequestView.xib in Resources */,
 				F209EEDA2ADC7A7E00528186 /* Assets.xcassets in Resources */,

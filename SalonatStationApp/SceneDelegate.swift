@@ -15,20 +15,24 @@ class SceneDelegate: UIResponder, UIWindowSceneDelegate, MOLHResetable {
     var window: UIWindow?
     
     func reset() {
-        let token = UserDefaults.standard.object(forKey: "\(Constants.AccessTokenKey)")
-        let storyboard  = UIStoryboard(name: "Main", bundle: nil)
-        if token != nil {
-            window?.rootViewController = storyboard.instantiateViewController(withIdentifier: Constants.Identifiers.tabBarController)
-        } else {
+        guard let token = UserDefaults.standard.value(forKey: Constants.AccessTokenKey) else {
+            let storyboard  = UIStoryboard(name: "Main", bundle: nil)
             window?.rootViewController = storyboard.instantiateViewController(withIdentifier: "NavigationID")
+            return
         }
+        guard let homeView = UIStoryboard(name: "Home", bundle: nil).instantiateViewController(withIdentifier: Constants.Identifiers.tabBarController) as? TabBarController else {
+            return
+        }
+        self.window?.rootViewController = homeView
+
     }
 
     func scene(_ scene: UIScene, willConnectTo session: UISceneSession, options connectionOptions: UIScene.ConnectionOptions) {
         // Use this method to optionally configure and attach the UIWindow `window` to the provided UIWindowScene `scene`.
         // If using a storyboard, the `window` property will automatically be initialized and attached to the scene.
         // This delegate does not imply the connecting scene or session are new (see `application:configurationForConnectingSceneSession` instead).
-//        autologin()
+
+        reset()
         setupNavBar()
         guard let _ = (scene as? UIWindowScene) else { return }
     }
@@ -88,21 +92,5 @@ extension SceneDelegate {
         }
     }
     
-    func autologin() {
-        guard (UserDefaults.standard.value(forKey: Constants.AccessTokenKey) != nil) else {
-            
-            return
-        }
-        DispatchQueue.main.async {
-            self.goToHomeScreen()
-        }
-    }
-    
-    
-    func goToHomeScreen() {
-        guard let homeView = UIStoryboard(name: "Main", bundle: nil).instantiateViewController(withIdentifier: Constants.Identifiers.tabBarController) as? TabBarController else {
-            return
-        }
-        self.window?.rootViewController = homeView
-    }
+   
 }

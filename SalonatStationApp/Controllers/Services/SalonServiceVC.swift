@@ -120,7 +120,8 @@ class SalonServiceVC: UIViewController {
     
     //MARK: - Navigation
     @objc func goToAddServiceScreen() {
-        guard let addServiceVC = storyboard?.instantiateViewController(withIdentifier: Constants.Identifiers.addServiceVC) as? AddNewServiceVC else {
+        let storyboard = UIStoryboard(name: "Home", bundle: nil)
+        guard let addServiceVC = storyboard.instantiateViewController(withIdentifier: Constants.Identifiers.addServiceVC) as? AddNewServiceVC else {
             return
         }
         self.navigationController?.pushViewController(addServiceVC, animated: true)

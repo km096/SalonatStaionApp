@@ -238,8 +238,8 @@
             filePath = "SalonatStationApp/Controllers/Services/SalonServiceVC.swift"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "150"
-            endingLineNumber = "150"
+            startingLineNumber = "151"
+            endingLineNumber = "151"
             landmarkName = "tableView(_:willDisplay:forRowAt:)"
             landmarkType = "7">
             <Locations>
@@ -289,6 +289,85 @@
             startingLineNumber = "139"
             endingLineNumber = "139"
             landmarkName = "gotoNextScreen()"
+            landmarkType = "7">
+         </BreakpointContent>
+      </BreakpointProxy>
+      <BreakpointProxy
+         BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
+         <BreakpointContent
+            uuid = "C46570E6-E300-4648-8D3F-577D4B377B4B"
+            shouldBeEnabled = "Yes"
+            ignoreCount = "0"
+            continueAfterRunningActions = "No"
+            filePath = "SalonatStationApp/AppDelegate.swift"
+            startingColumnNumber = "9223372036854775807"
+            endingColumnNumber = "9223372036854775807"
+            startingLineNumber = "18"
+            endingLineNumber = "18"
+            landmarkName = "reset()"
+            landmarkType = "7">
+            <Locations>
+               <Location
+                  uuid = "C46570E6-E300-4648-8D3F-577D4B377B4B - ab057f9fc13e7827"
+                  shouldBeEnabled = "Yes"
+                  ignoreCount = "0"
+                  continueAfterRunningActions = "No"
+                  symbolName = "SalonatStationApp.AppDelegate.reset() -&gt; ()"
+                  moduleName = "SalonatStationApp"
+                  usesParentBreakpointCondition = "Yes"
+                  urlString = "file:///Users/me-mac/Desktop/IOSApps/SalonatStationApp/SalonatStationApp/AppDelegate.swift"
+                  startingColumnNumber = "9223372036854775807"
+                  endingColumnNumber = "9223372036854775807"
+                  startingLineNumber = "18"
+                  endingLineNumber = "18"
+                  offsetFromSymbolStart = "2228">
+               </Location>
+               <Location
+                  uuid = "C46570E6-E300-4648-8D3F-577D4B377B4B - ab057f9fc13e7827"
+                  shouldBeEnabled = "Yes"
+                  ignoreCount = "0"
+                  continueAfterRunningActions = "No"
+                  symbolName = "SalonatStationApp.AppDelegate.reset() -&gt; ()"
+                  moduleName = "SalonatStationApp"
+                  usesParentBreakpointCondition = "Yes"
+                  urlString = "file:///Users/me-mac/Desktop/IOSApps/SalonatStationApp/SalonatStationApp/AppDelegate.swift"
+                  startingColumnNumber = "9223372036854775807"
+                  endingColumnNumber = "9223372036854775807"
+                  startingLineNumber = "18"
+                  endingLineNumber = "18"
+                  offsetFromSymbolStart = "2450">
+               </Location>
+               <Location
+                  uuid = "C46570E6-E300-4648-8D3F-577D4B377B4B - ab057f9fc13e7827"
+                  shouldBeEnabled = "Yes"
+                  ignoreCount = "0"
+                  continueAfterRunningActions = "No"
+                  symbolName = "SalonatStationApp.AppDelegate.reset() -&gt; ()"
+                  moduleName = "SalonatStationApp"
+                  usesParentBreakpointCondition = "Yes"
+                  urlString = "file:///Users/me-mac/Desktop/IOSApps/SalonatStationApp/SalonatStationApp/AppDelegate.swift"
+                  startingColumnNumber = "9223372036854775807"
+                  endingColumnNumber = "9223372036854775807"
+                  startingLineNumber = "18"
+                  endingLineNumber = "18"
+                  offsetFromSymbolStart = "2608">
+               </Location>
+            </Locations>
+         </BreakpointContent>
+      </BreakpointProxy>
+      <BreakpointProxy
+         BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
+         <BreakpointContent
+            uuid = "0AF8AEF6-1FA3-4DDA-B701-B8358AB11E87"
+            shouldBeEnabled = "Yes"
+            ignoreCount = "0"
+            continueAfterRunningActions = "No"
+            filePath = "SalonatStationApp/AppDelegate.swift"
+            startingColumnNumber = "9223372036854775807"
+            endingColumnNumber = "9223372036854775807"
+            startingLineNumber = "21"
+            endingLineNumber = "21"
+            landmarkName = "reset()"
             landmarkType = "7">
          </BreakpointContent>
       </BreakpointProxy>
